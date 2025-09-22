@@ -7,14 +7,14 @@
 <style>
   :root{
     --vinho:#751a32;        /* vinho do cabeçalho */
-    --fundo-pagina:#fbeef3; /* rosa claro para o fundo geral */
+    --fundo-pagina:#eebbbb; /* rosa claro para o fundo geral */
     --cinza:#e5e5e7;
     --texto:#222;
   }
   html,body{
     margin:0;
     padding:0;
-    background:var(--fundo-pagina); /* fundo rosa claro */
+    background:var(--fundo-pagina);
     color:var(--texto);
     font-family:Arial, Helvetica, sans-serif;
   }
@@ -25,19 +25,9 @@
     text-align:center;
     padding:48px 16px 36px;
   }
-  .hero h1{
-    margin:0 0 8px 0;
-    font-size:36px;
-  }
-  .hero h2{
-    margin:6px 0 16px 0;
-    font-size:22px;
-    font-weight:700;
-  }
-  .hero .nomes{
-    max-width:980px;margin:0 auto;
-    opacity:.95;
-  }
+  .hero h1{margin:0 0 8px;font-size:36px;}
+  .hero h2{margin:6px 0 16px;font-size:22px;font-weight:700;}
+  .hero .nomes{max-width:980px;margin:0 auto;opacity:.95;}
 
   /* Área principal */
   .container{
@@ -52,12 +42,11 @@
     margin:32px 0 12px;
   }
 
-  /* Abas tipo acordeão agora brancas */
+  /* Abas tipo acordeão */
   details{
     background:#fff;
     border-radius:6px;
     margin:8px 0;
-    padding:0;
     border:1px solid #ddd;
     overflow:hidden;
   }
@@ -66,30 +55,34 @@
     cursor:pointer;
     padding:12px 14px;
     font-weight:700;
-    background:#fff;      /* abas voltam a ser brancas */
-    color:var(--texto);   /* texto padrão */
+    background:#fff;
+    color:var(--texto);
     display:flex;
     align-items:center;
     gap:8px;
     user-select:none;
   }
-  summary::before{
-    content:"►";
-    font-weight:900;
-    color:var(--texto);
-  }
-  details[open] summary::before{
-    content:"▼";
-  }
-  details[open] .content{
-    border-top:1px solid #eee;
-  }
+  summary::before{content:"►";font-weight:900;color:var(--texto);}
+  details[open] summary::before{content:"▼";}
   .content{
     padding:12px 14px 14px;
     line-height:1.6;
     background:#fff;
     color:var(--texto);
+    border-top:1px solid #eee;
   }
+
+  .refs a{
+    display:inline-block;
+    margin:4px 10px 4px 0;
+    text-decoration:none;
+    color:#fff;
+    background:var(--vinho);
+    padding:8px 12px;
+    border-radius:8px;
+    font-weight:700;
+  }
+  .refs a:hover{filter:brightness(.92);}
 
   /* Rodapé */
   .footer{
@@ -100,13 +93,11 @@
     font-size:14px;
   }
 
-  summary:focus{
-    outline:3px solid #00000022;
-    outline-offset:2px;
-  }
+  summary:focus{outline:3px solid #00000022;outline-offset:2px;}
 </style>
 </head>
 <body>
+
   <!-- Cabeçalho -->
   <header class="hero">
     <h1>Processamento de Vídeo</h1>
@@ -117,62 +108,89 @@
   </header>
 
   <div class="container">
-    <div class="tema">Tema:       </div>
+    <div class="tema">Tema:  </div>
 
-    <details>
+    <!-- ETAPA 1 completa -->
+    <details open>
       <summary>ETAPA 1: Contexto e Cenário de Aplicação (CA)</summary>
       <div class="content">
-        Coloque aqui o conteúdo da Etapa 1.
+        <h3>Introdução</h3>
+        <p>
+   
+        </p>
+
+        <h3>Etapas de desenvolvimento</h3>
+
+        <h4>(A) Problema a ser abordado</h4>
+        <p>
+          
+        </p>
+
+        <h4>(B) Objetivo</h4>
+        <p>
+        
+        </p>
+
+        <h4>(C) Funcionamento do Sistema</h4>
+        <p>
+         
+        </p>
+
+        <h4>(D) Benefícios esperados</h4>
+        <p>
+      
+        </p>
+
+        <h3>Referências</h3>
+        <ul>
+          <li>Entrevistas Fernanda</li>
+          <li>Entrevistas Gabriel</li>
+          <li>Entrevistas Ingrid</li>
+          <li>Entrevistas Isaac</li>
+        </ul>
+        <div class="refs">
+          <a href="downloads/Entrevistas_Fernanda.pdf" download>Download Entrevistas Fernanda</a>
+          <a href="downloads/Entrevistas_Gabriel.pdf" download>Download Entrevistas Gabriel</a>
+          <a href="downloads/Entrevistas_Ingrid.pdf" download>Download Entrevistas Ingrid</a>
+          <a href="downloads/Entrevistas_Isaac.pdf" download>Download Entrevistas Isaac</a>
+        </div>
       </div>
     </details>
 
+    <!-- Outras etapas -->
     <details>
       <summary>ETAPA 2: Modelagem Funcional do Sistema (MF)</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 2.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 2.</div>
     </details>
 
     <details>
       <summary>ETAPA 3: Seminário S1 do Trabalho</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 3.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 3.</div>
     </details>
 
     <details>
       <summary>ETAPA 4: Desenvolvimento do Sistema de Processamento da Visão (SPV)</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 4.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 4.</div>
     </details>
 
     <details>
-      <summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx) </summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 5.
-      </div>
+      <summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx)</summary>
+      <div class="content">Coloque aqui o conteúdo da Etapa 5.</div>
     </details>
 
     <details>
       <summary>ETAPA 6: Teste de Campo do SPV (TC)</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 6.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 6.</div>
     </details>
 
     <details>
       <summary>ETAPA 7: Relatório Final do Trabalho (RFT)</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 7.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 7.</div>
     </details>
 
     <details>
       <summary>ETAPA 8: Seminário S2 do Trabalho</summary>
-      <div class="content">
-        Coloque aqui o conteúdo da Etapa 8.
-      </div>
+      <div class="content">Coloque aqui o conteúdo da Etapa 8.</div>
     </details>
   </div>
 
