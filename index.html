@@ -1,54 +1,183 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>Página Inicial - Processamento de Vídeo</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Processamento de Vídeo — Equipe</title>
 <style>
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  margin: 0;
-}
-header {
-  background: #7b1e3a;
-  color: white;
-  padding: 30px 0;
-}
-nav a {
-  display: inline-block;
-  margin: 12px;
-  padding: 10px 18px;
-  background: #7b1e3a;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-}
-nav a:hover { background: #9c2c53; }
-footer {
-  margin-top: 40px;
-  padding: 15px;
-  background: #e0e0e0;
-}
+  :root{
+    --vinho:#751a32;        /* vinho do cabeçalho */
+    --fundo-pagina:#fbeef3; /* rosa claro para o fundo geral */
+    --cinza:#e5e5e7;
+    --texto:#222;
+  }
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--fundo-pagina); /* fundo rosa claro */
+    color:var(--texto);
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  /* Cabeçalho */
+  .hero{
+    background:var(--vinho);
+    color:#fff;
+    text-align:center;
+    padding:48px 16px 36px;
+  }
+  .hero h1{
+    margin:0 0 8px 0;
+    font-size:36px;
+  }
+  .hero h2{
+    margin:6px 0 16px 0;
+    font-size:22px;
+    font-weight:700;
+  }
+  .hero .nomes{
+    max-width:980px;margin:0 auto;
+    opacity:.95;
+  }
+
+  /* Área principal */
+  .container{
+    max-width:980px;
+    margin:28px auto 48px;
+    padding:0 16px;
+  }
+
+  .tema{
+    font-weight:700;
+    font-size:18px;
+    margin:32px 0 12px;
+  }
+
+  /* Abas tipo acordeão agora brancas */
+  details{
+    background:#fff;
+    border-radius:6px;
+    margin:8px 0;
+    padding:0;
+    border:1px solid #ddd;
+    overflow:hidden;
+  }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 14px;
+    font-weight:700;
+    background:#fff;      /* abas voltam a ser brancas */
+    color:var(--texto);   /* texto padrão */
+    display:flex;
+    align-items:center;
+    gap:8px;
+    user-select:none;
+  }
+  summary::before{
+    content:"►";
+    font-weight:900;
+    color:var(--texto);
+  }
+  details[open] summary::before{
+    content:"▼";
+  }
+  details[open] .content{
+    border-top:1px solid #eee;
+  }
+  .content{
+    padding:12px 14px 14px;
+    line-height:1.6;
+    background:#fff;
+    color:var(--texto);
+  }
+
+  /* Rodapé */
+  .footer{
+    background:var(--cinza);
+    color:#111;
+    text-align:center;
+    padding:18px 12px;
+    font-size:14px;
+  }
+
+  summary:focus{
+    outline:3px solid #00000022;
+    outline-offset:2px;
+  }
 </style>
 </head>
 <body>
+  <!-- Cabeçalho -->
+  <header class="hero">
+    <h1>Processamento de Vídeo</h1>
+    <h2>Equipe</h2>
+    <div class="nomes">
+      Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira
+    </div>
+  </header>
 
-<header>
-  <h1>Processamento de Vídeo </h1>
-  <h2>Equipe </h2>
-  <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
-</header>
+  <div class="container">
+    <div class="tema">Tema:       </div>
 
+    <details>
+      <summary>ETAPA 1: Contexto e Cenário de Aplicação (CA)</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 1.
+      </div>
+    </details>
 
-<nav>
-  <a href="trabalhos/index.html">Trabalhos</a>
-  <a href="relatorios/index.html">Relatórios</a>
-</nav>
+    <details>
+      <summary>ETAPA 2: Modelagem Funcional do Sistema (MF)</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 2.
+      </div>
+    </details>
 
-<footer>
-  © 2025 — Equipe 
-</footer>
+    <details>
+      <summary>ETAPA 3: Seminário S1 do Trabalho</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 3.
+      </div>
+    </details>
 
+    <details>
+      <summary>ETAPA 4: Desenvolvimento do Sistema de Processamento da Visão (SPV)</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 4.
+      </div>
+    </details>
+
+    <details>
+      <summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx) </summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 5.
+      </div>
+    </details>
+
+    <details>
+      <summary>ETAPA 6: Teste de Campo do SPV (TC)</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 6.
+      </div>
+    </details>
+
+    <details>
+      <summary>ETAPA 7: Relatório Final do Trabalho (RFT)</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 7.
+      </div>
+    </details>
+
+    <details>
+      <summary>ETAPA 8: Seminário S2 do Trabalho</summary>
+      <div class="content">
+        Coloque aqui o conteúdo da Etapa 8.
+      </div>
+    </details>
+  </div>
+
+  <footer class="footer">
+    © 2025 — Equipe
+  </footer>
 </body>
 </html>
