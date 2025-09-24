@@ -51,9 +51,7 @@
     font-weight:700;
     background:#fff;
     color:var(--texto);
-    display:flex;
-    align-items:center;
-    gap:8px;
+    display:flex; align-items:center; gap:8px;
     user-select:none;
   }
   summary::before{content:"►";font-weight:900;color:var(--texto);}
@@ -103,15 +101,53 @@
     <details open>
       <summary>ETAPA 1: Contexto e Cenário de Aplicação (CA)</summary>
       <div class="content">
-       <p> Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
+        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
         <p><strong>Data:</strong> 01/10/2025</p>
+
         <h3>Introdução</h3>
-        <p><!-- conteúdo da Etapa 1 --></p>
+        <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+        <p>O uso de celular ao volante é uma das principais causas de distração e acidentes de trânsito no Brasil e no mundo. Mesmo com leis de trânsito rigorosas, muitos motoristas continuam a atender chamadas, enviar mensagens ou manipular aplicativos de navegação durante a condução. Essa prática reduz o tempo de reação, aumenta o risco de colisões e coloca em perigo a vida de motoristas, passageiros e pedestres.</p>
+
+<p>A partir de entrevistas empáticas com pessoas que dirigem ou acompanham motoristas, foi constatado que a distração pelo celular é um hábito comum e que a maioria reconhece a necessidade de um sistema de alerta imediato, que ajude a manter a atenção na estrada sem invadir a privacidade do condutor.</p>
+
+<p>Com base nesse levantamento, este trabalho propõe o desenvolvimento de um Sistema de Processamento de Vídeo (SPV) capaz de detectar, em tempo real, o uso de celular durante a direção. O sistema utilizará linguagem C++ e a biblioteca OpenCV para realizar captura, filtragem e análise de vídeo diretamente a partir de uma câmera instalada no veículo. Ao identificar gestos característicos do uso de telefone, como segurar o aparelho ou olhar para baixo, o SPV emitirá um alerta sonoro e visual, incentivando o motorista a interromper a ação.</p>
+
+<p>Além de aumentar a segurança e a consciência do condutor, a proposta integra conceitos de processamento de vídeo e visão computacional exigidos na disciplina, como filtragem de imagens, processamento de cores, equalização de histograma, subtração de fundo e detecção de objetos, demonstrando uma aplicação prática e socialmente relevante dessas técnicas.</p>
+
         <h3>Etapas de desenvolvimento</h3>
-        <h4>(A) Problema a ser abordado</h4><p></p>
-        <h4>(B) Objetivo</h4><p></p>
-        <h4>(C) Funcionamento do Sistema</h4><p></p>
-        <h4>(D) Benefícios esperados</h4><p></p>
+        <h4>(A) Problema a ser abordado</h4>
+        <p>O uso de celular ao volante é uma das principais causas de acidentes de trânsito, pois provoca perda de atenção e tempo de reação. Mesmo em percursos curtos, muitos motoristas assumem o risco de atender ligações, responder mensagens ou manipular aplicativos de navegação.
+As entrevistas empáticas realizadas com motoristas e acompanhantes evidenciaram que a distração pelo celular é frequente e vista como perigosa, além de apontarem a necessidade de um alerta imediato e não invasivo.
+Atualmente, as soluções de mercado se concentram em aplicativos bloqueadores ou sensores veiculares, mas poucas combinam análise visual em tempo real para detectar o ato de segurar ou olhar o celular, sobretudo em diferentes condições de iluminação e ângulo.</p>
+
+<p><strong>Justificativa:</strong> Desenvolver um sistema que identifique automaticamente o uso do celular durante a condução contribui para a redução de acidentes, atende às recomendações de segurança viária e aproveita técnicas de processamento de vídeo e visão computacional abordadas na disciplina.</p>
+        <h4>(B) Objetivo</h4>
+    <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+  <p>Criar um Sistema de Processamento de Vídeo (SPV) capaz de:</p>
+  <ul>
+    <li>Capturar, em tempo real, a imagem do motorista por meio de uma câmera (ex.: webcam instalada no painel ou próximo ao retrovisor);</li>
+    <li>Detectar movimentos e posturas típicas do uso de celular, como telefone próximo ao ouvido, olhar para baixo ou toque na tela;</li>
+    <li>Emitir alertas visuais e/ou sonoros quando identificar uso de celular com o veículo em movimento;</li>
+    <li>Registrar métricas de detecção (porcentagem de acertos, falsos positivos/negativos), permitindo análise posterior.</li>
+  </ul>
+</div>
+
+        <h4>(C) Funcionamento do Sistema</h4>
+        <p>O sistema inicia seu funcionamento assim que o motorista liga o veículo e aciona o programa instalado em um computador de bordo, notebook ou minipc conectado a uma webcam posicionada próxima ao retrovisor. A câmera capta continuamente as imagens do motorista, incluindo rosto, mãos e a região do colo, enviando-as em tempo real para o módulo de processamento em C++ com a biblioteca OpenCV. Primeiramente, os quadros do vídeo passam por etapas de pré-processamento, como filtragem e equalização de histograma, para garantir boa qualidade mesmo sob variações de iluminação. Em seguida, é aplicada a subtração de fundo para isolar os elementos em movimento e facilitar a análise de postura e gestos.</p>
+
+<p>Com a cena preparada, os algoritmos de detecção de objetos e de análise de movimento identificam regiões correspondentes ao rosto e às mãos. O sistema compara continuamente a posição e os gestos detectados com padrões típicos do uso de celular, como a mão erguida próximo ao ouvido, o olhar direcionado para baixo ou o ato de segurar um aparelho retangular. Quando essas características coincidem com o veículo em movimento, o programa aciona de imediato um alerta sonoro e visual na tela, chamando a atenção do condutor para retomar o foco na direção.</p>
+
+<p>Todos os eventos são contabilizados, permitindo gerar ao final da viagem um resumo com estatísticas de tempo de distração e quantidade de alertas emitidos. Todo o processamento é feito localmente, sem envio de imagens para a nuvem, preservando a privacidade do usuário. Assim, o sistema atua de maneira autônoma e em tempo real, combinando captura, análise e notificação instantânea para prevenir acidentes causados pelo uso do celular durante a condução.</p>
+        <h4>(D) Benefícios esperados</h4>
+        <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+  <ul>
+    <li><strong>Segurança:</strong> reduz riscos de acidentes ao alertar sobre distrações.</li>
+    <li><strong>Conscientização:</strong> o relatório de uso reforça hábitos de direção segura.</li>
+    <li><strong>Baixo custo e simplicidade:</strong> utiliza apenas uma câmera e processamento local, dispensando internet.</li>
+    <li><strong>Privacidade:</strong> não envia imagens para servidores externos, atendendo preocupações levantadas nas entrevistas.</li>
+  </ul>
+</div>
+
         <h3>Referências</h3>
         <ul>
           <li>Entrevistas Fernanda</li>
@@ -122,7 +158,7 @@
         <div class="refs">
           <a href="downloads/Entrevistas_Fernanda.pdf" download>Download Entrevistas Fernanda</a>
           <a href="downloads/Entrevistas_Gabriel.pdf" download>Download Entrevistas Gabriel</a>
-          <a href="downloads/Entrevistas_Ingrid.pdf" download>Download Entrevistas Ingrid</a>
+          <a href="file:///home/ingrid/PV/Entrevistas_Ingrid.pdf" download>Download Entrevistas Ingrid</a>
           <a href="downloads/Entrevistas_Isaac.pdf" download>Download Entrevistas Isaac</a>
         </div>
       </div>
@@ -132,73 +168,99 @@
     <details>
       <summary>ETAPA 2: Modelagem Funcional do Sistema (MF)</summary>
       <div class="content">
-        <p> Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
+        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
         <p><strong>Data:</strong> 08/10/2025</p>
-        <h3>Descrição Geral</h3><p></p>
+
+        <h3>Descrição Geral</h3>
+        <p></p>
+
         <h3>Diagrama de Blocos - Modelagem Funcional</h3>
-        <h4>Descrição dos Blocos Funcionais</h4><p></p>
-        <h4>Estimativa do uso de técnicas para o projeto</h4><p></p>
-        <h4>Conclusão</h4><p></p>
+
+        <h4>Descrição dos Blocos Funcionais</h4>
+        <p></p>
+
+        <h4>Estimativa do uso de técnicas para o projeto</h4>
+        <p></p>
+
+        <h4>Conclusão</h4>
+        <p></p>
       </div>
     </details>
 
-    <details><summary>ETAPA 3: Seminário S1 do Trabalho</summary>
+    <!-- ETAPA 3 -->
+    <details>
+      <summary>ETAPA 3: Seminário S1 do Trabalho</summary>
+      <div class="content">
         <div class="refs">
           <a href="downloads/seminarios1.pdf" download>Download Seminário S1</a>
-          </div>
-       </details>
+        </div>
+      </div>
+    </details>
 
-    <details><summary>ETAPA 4: Desenvolvimento do Sistema de Processamento da Visão (SPV)</summary>
-      <div class="content">Coloque aqui o conteúdo da Etapa 4.</div></details>
+    <!-- ETAPA 4 -->
+    <details>
+      <summary>ETAPA 4: Desenvolvimento do Sistema de Processamento da Visão (SPV)</summary>
+      <div class="content">Coloque aqui o conteúdo da Etapa 4.</div>
+    </details>
 
-    <details><summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx)</summary>
+    <!-- ETAPA 5 -->
+    <details>
+      <summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx)</summary>
       <div class="content">
-       <p> Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
-            <p><strong>Data:</strong> 12/11/2025</p>
+        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
+        <p><strong>Data:</strong> 12/11/2025</p>
 
-      <h3>Objetivo</h3>
-      <p>
-        Preparar o Teste de Campo (TC) do Sistema de Processamento Visual (SPV), por meio da
-        elaboração do Laboratório Experimental (LEx), atendendo às condições e roteiros definidos abaixo.
-      </p>
+        <h3>Objetivo</h3>
+        <p>
+          Preparar o Teste de Campo (TC) do Sistema de Processamento Visual (SPV), por meio da
+          elaboração do Laboratório Experimental (LEx), atendendo às condições e roteiros definidos abaixo.
+        </p>
 
-      <h3>Roteiro do Laboratório Experimental (para cada aplicação)</h3>
-      <ul>
-      </ul>
+        <h3>Roteiro do Laboratório Experimental (para cada aplicação)</h3>
+        <ul>
+          <li>Roteiro de procedimento experimental com instruções claras para executar o sistema e coletar resultados.</li>
+          <li>Figuras/imagens que esclareçam o procedimento e os resultados esperados.</li>
+        </ul>
 
-      <h3>Introdução </h3>
-      <p>
-      
+        <h3>Introdução</h3>
+        <p><!-- explicar funcionamento do sistema, telas e interfaces; como um usuário leigo opera --></p>
 
-      <h3>Procedimento experimental</h3>
-      <p>
-       
-      </p>
+        <h3>Procedimento experimental</h3>
+        <p><!-- instruções detalhadas; incluir figuras/imagens se necessário --></p>
 
-      <h3>Questionário de avaliação do usuário</h3>
-  
-      </ul>
+        <h3>Questionário de avaliação do usuário</h3>
+        <ul>
+          <li>(i) Entendeu o assunto por meio do experimento?</li>
+          <li>(ii) Obteve resultados esperados?</li>
+          <li>(iii) Entendeu a aplicação do sistema?</li>
+        </ul>
 
-      <h3>Notas e planilha de médias</h3>
-      <ul>
+        <h3>Notas e planilha de médias</h3>
+        <ul>
+          <li>Atribuir nota por questão; calcular média por usuário em planilha (Excel/Office).</li>
+          <li>Enviar a planilha pelo Moodle após o TC do SPV.</li>
+        </ul>
 
-      <h3>Enquete Subjetiva de Opinião (ESO)</h3>
-      </p>
+        <h3>Enquete Subjetiva de Opinião (ESO)</h3>
+        <ul>
+          <li>Perguntas abertas (respostas escritas).</li>
+          <li>Perguntas com escala 1–5 (avaliar opinião do usuário).</li>
+        </ul>
+      </div>
+    </details>
 
+    <!-- ETAPA 6 -->
+    <details>
+      <summary>ETAPA 6: Teste de Campo do SPV (TC)</summary>
+      <div class="content">Coloque aqui o conteúdo da Etapa 6.</div>
+    </details>
 
-    </div>
-  </details>
-
-
-    <details><summary>ETAPA 6: Teste de Campo do SPV (TC)</summary>
-      <div class="content">Coloque aqui o conteúdo da Etapa 6.</div></details>
-
-    <!-- ETAPA 7 com RFT completo -->
+    <!-- ETAPA 7 -->
     <details>
       <summary>ETAPA 7: Relatório Final do Trabalho (RFT)</summary>
       <div class="content">
-      <p> Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
-      <p><strong>Data:</strong> 24/11/2025</p>
+        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier — Isac do Nascimento Vieira</p>
+        <p><strong>Data:</strong> 24/11/2025</p>
 
         <h3>Introdução</h3>
         <ul>
@@ -257,20 +319,22 @@
 
         <h3>Anexo</h3>
         <p><!-- incluir códigos completos e todos os arquivos relevantes (ou links de download) --></p>
-
       </div>
     </details>
 
+    <!-- ETAPA 8 -->
     <details>
       <summary>ETAPA 8: Seminário S2 do Trabalho</summary>
-      <div class="refs">
+      <div class="content">
+        <div class="refs">
           <a href="downloads/seminarios2.pdf" download>Download Seminário S2</a>
-          </div>
-       </details>
+        </div>
+      </div>
+    </details>
+  </div>
 
   <footer class="footer">
     © 2025 — Equipe
   </footer>
 </body>
 </html>
-
