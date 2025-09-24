@@ -95,7 +95,7 @@
   </header>
 
   <div class="container">
-    <div class="tema">Tema:</div>
+    <div class="tema">Tema: Monitoramento do uso de celular na direção</div>
 
     <!-- ETAPA 1 -->
     <details open>
@@ -106,13 +106,7 @@
 
         <h3>Introdução</h3>
         <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
-        <p>O uso de celular ao volante é uma das principais causas de distração e acidentes de trânsito no Brasil e no mundo. Mesmo com leis de trânsito rigorosas, muitos motoristas continuam a atender chamadas, enviar mensagens ou manipular aplicativos de navegação durante a condução. Essa prática reduz o tempo de reação, aumenta o risco de colisões e coloca em perigo a vida de motoristas, passageiros e pedestres.</p>
-
-<p>A partir de entrevistas empáticas com pessoas que dirigem ou acompanham motoristas, foi constatado que a distração pelo celular é um hábito comum e que a maioria reconhece a necessidade de um sistema de alerta imediato, que ajude a manter a atenção na estrada sem invadir a privacidade do condutor.</p>
-
-<p>Com base nesse levantamento, este trabalho propõe o desenvolvimento de um Sistema de Processamento de Vídeo (SPV) capaz de detectar, em tempo real, o uso de celular durante a direção. O sistema utilizará linguagem C++ e a biblioteca OpenCV para realizar captura, filtragem e análise de vídeo diretamente a partir de uma câmera instalada no veículo. Ao identificar gestos característicos do uso de telefone, como segurar o aparelho ou olhar para baixo, o SPV emitirá um alerta sonoro e visual, incentivando o motorista a interromper a ação.</p>
-
-<p>Além de aumentar a segurança e a consciência do condutor, a proposta integra conceitos de processamento de vídeo e visão computacional exigidos na disciplina, como filtragem de imagens, processamento de cores, equalização de histograma, subtração de fundo e detecção de objetos, demonstrando uma aplicação prática e socialmente relevante dessas técnicas.</p>
+        <p>O uso de celular ao volante é uma das principais causas de distração e acidentes, pois reduz o tempo de reação e aumenta o risco de colisões, colocando em perigo motoristas, passageiros e pedestres. Entrevistas empáticas com condutores e acompanhantes confirmaram que a distração pelo celular é frequente e que há consenso sobre a necessidade de um sistema de alerta rápido que mantenha a privacidade do usuário. Diante disso, este trabalho propõe um Sistema de Processamento de Vídeo (SPV), desenvolvido em C++ com a biblioteca OpenCV, que capta e analisa em tempo real as imagens do motorista. Ao identificar gestos típicos de uso do celular, como segurar o aparelho ou olhar para baixo, o sistema emite alerta sonoro e visual, incentivando o condutor a retomar a atenção. Além de aumentar a segurança e a conscientização, o projeto aplica conceitos da disciplina, como filtragem de imagens, processamento de cores, equalização de histograma, subtração de fundo e detecção de objetos, demonstrando aplicação prática e relevância social.</p>
 
         <h3>Etapas de desenvolvimento</h3>
         <h4>(A) Problema a ser abordado</h4>
@@ -172,9 +166,19 @@ Atualmente, as soluções de mercado se concentram em aplicativos bloqueadores o
         <p><strong>Data:</strong> 08/10/2025</p>
 
         <h3>Descrição Geral</h3>
-        <p></p>
+        <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+        <p>O sistema proposto tem como finalidade monitorar, em tempo real, o uso de celular pelo motorista e emitir alerta sonoro e visual sempre que detectar um comportamento de distração. Desenvolvido em C++ com a biblioteca OpenCV e executado em ambiente Ubuntu Linux, ele funciona em três etapas encadeadas. Na primeira, a webcam capta continuamente a imagem do condutor, enquanto cada quadro é filtrado e tem cores e histograma ajustados, com subtração de fundo para realçar rosto e mãos. Em seguida, algoritmos de detecção de objetos e análise de movimento identificam gestos característicos do uso de celular, como segurar o aparelho próximo ao ouvido ou olhar para baixo. Por fim, quando o veículo está em movimento e um desses gestos é reconhecido, o sistema aciona de imediato os alertas e registra métricas de desempenho, como acertos, falsos positivos e falsos negativos, para avaliação posterior. Todo o processamento é realizado localmente, garantindo a privacidade do usuário e exigindo apenas que o programa seja iniciado no início da viagem.
+</p>
 
         <h3>Diagrama de Blocos - Modelagem Funcional</h3>
+<figure>
+  <img src="Diagrama_de_Blocos.png" alt="Fluxograma do sistema de detecção de uso de celular em veículo em movimento, mostrando as etapas de captura de imagem, processamento, detecção de comportamento, verificação de movimento e geração de alertas." style="max-width:90%; height:auto;">
+</figure>
+
+</body>
+</html>
+
+
 
         <h4>Descrição dos Blocos Funcionais</h4>
         <p></p>
