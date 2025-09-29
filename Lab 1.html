@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Relatório 1 — Equipe RoadWatch</title>
+<style>
+  :root{
+    --vinho:#751a32;
+    --fundo-pagina:#eebbbb;
+    --cinza:#e5e5e7;
+    --texto:#222;
+  }
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--fundo-pagina);
+    color:var(--texto);
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  .hero{
+    background:var(--vinho);
+    color:#fff;
+    text-align:center;
+    padding:48px 16px 36px;
+  }
+  .hero h1{margin:0 0 8px;font-size:36px;}
+  .hero h2{margin:6px 0 16px;font-size:22px;font-weight:700;}
+  .hero .nomes{max-width:980px;margin:0 auto;opacity:.95;}
+  .container{
+    max-width:980px;
+    margin:28px auto 48px;
+    padding:0 16px;
+  }
+  details{
+    background:#fff;
+    border-radius:6px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    overflow:hidden;
+  }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    padding:12px 14px;
+    font-weight:700;
+    background:#fff;
+    color:var(--texto);
+    display:flex; align-items:center; gap:8px;
+    user-select:none;
+  }
+  summary::before{content:"►";font-weight:900;color:var(--texto);}
+  details[open] summary::before{content:"▼";}
+  .content{
+    padding:12px 14px 14px;
+    line-height:1.6;
+    background:#fff;
+    color:var(--texto);
+    border-top:1px solid #eee;
+  }
+  .card{background:#fff;border:1px solid #eee;border-radius:6px;padding:12px 14px;margin:10px 0}
+  .footer{
+    background:var(--cinza);
+    color:#111;
+    text-align:center;
+    padding:18px 12px;
+    font-size:14px;
+  }
+  summary:focus{outline:3px solid #00000022;outline-offset:2px;}
+</style>
+</head>
+<body>
+
+  <!-- Cabeçalho no mesmo estilo do exemplo -->
+  <header class="hero">
+    <h1>Processamento de Vídeo</h1>
+    <h2>Equipe RoadWatch</h2>
+    <div class="nomes">
+      Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Relatório 1 com a mesma formatação (details/summary + blocos) -->
+    <details open>
+      <summary>Relatório 1</summary>
+      <div class="content">
+        <div class="card">
+          <h3>1. Introdução</h3>
+          <p><!-- escreva aqui a contextualização e objetivos do laboratório/projeto --></p>
+        </div>
+
+        <div class="card">
+          <h3>2. Fundamentos Básicos</h3>
+          <p><!-- conceitos essenciais utilizados (ex.: pixels, frames, FPS, codecs, histogramas, filtros) --></p>
+        </div>
+
+        <div class="card">
+          <h3>3. Materiais e Métodos</h3>
+          <p><!-- liste sistemas, versões, equipamentos, bibliotecas, e o procedimento experimental passo a passo --></p>
+        </div>
+
+        <div class="card">
+          <h3>4. Resultados e Análises</h3>
+          <p><!-- descreva os resultados, inclua imagens/vídeos e analise efeitos observados --></p>
+        </div>
+
+        <div class="card">
+          <h3>5. Conclusões</h3>
+          <p><!-- síntese do aprendizado, limitações e próximos passos --></p>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <footer class="footer">
+    © 2025 — Equipe RoadWatch
+  </footer>
+</body>
+</html>
+
