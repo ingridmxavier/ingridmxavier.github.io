@@ -106,23 +106,27 @@
 
         <h3>Introdução</h3>
         <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+        <p>A distração ao volante é um dos principais fatores que elevam o risco de acidentes de trânsito nos dias atuais, especialmente com o crescimento do uso de celulares. Segundo pesquisas da OMS e de outras organizações, o uso do celular enquanto dirige pode aumentar o risco de colisões em até 400%. No Brasil, essa prática já figura como a terceira maior causa de mortes no trânsito, assim já podemos perceber o perigoso efeito de dirigir distraído mexendo ou olhando no celular pode impactar.</p>
+        <p>Em termos de infrações entre 2023 e 2024, mais de 50 mil condutores foram autuados por uso de celular ao volante — o que corresponde a uma média de quase 150 flagrantes por dia. Agora, olhando pelo  ponto de vista internacional, os dados mostram essa tendência de risco elevado, como por exemplo: nos Estados Unidos, em 2023, 3.275 pessoas morreram em acidentes em que a distração estava envolvida. Além disso, cerca de 12% dos acidentes fatais ao redor do mundo, praticamente todos estavam relacionados a distrações envolvendo o uso de telefone celular enquanto dirigem. Ainda, diversos estudos mostram ainda que tarefas visuais e manuais (como digitar ou deslizar no celular) estão entre as que mais aumentam o risco de acidentes de trânsito.</p>
+
         <p>O uso de celular ao volante é uma das principais causas de distração e acidentes, pois reduz o tempo de reação e aumenta o risco de colisões, colocando em perigo motoristas, passageiros e pedestres. Entrevistas empáticas com condutores e acompanhantes confirmaram que a distração pelo celular é frequente e que há consenso sobre a necessidade de um sistema de alerta rápido que mantenha a privacidade do usuário. Diante disso, este trabalho propõe um Sistema de Processamento de Vídeo (SPV), desenvolvido em C++ com a biblioteca OpenCV, que capta e analisa em tempo real as imagens do motorista. Ao identificar gestos típicos de uso do celular, como segurar o aparelho ou olhar para baixo, o sistema emite alerta sonoro e visual, incentivando o condutor a retomar a atenção. Além de aumentar a segurança e a conscientização, o projeto aplica conceitos da disciplina, como filtragem de imagens, processamento de cores, equalização de histograma, subtração de fundo e detecção de objetos, demonstrando aplicação prática e relevância social.</p>
 
         <h3>Etapas de desenvolvimento</h3>
         <h4>(A) Problema a ser abordado</h4>
-        <p>O uso de celular ao volante é uma das principais causas de acidentes de trânsito, pois provoca perda de atenção e tempo de reação. Mesmo em percursos curtos, muitos motoristas assumem o risco de atender ligações, responder mensagens ou manipular aplicativos de navegação.
-As entrevistas empáticas realizadas com motoristas e acompanhantes evidenciaram que a distração pelo celular é frequente e vista como perigosa, além de apontarem a necessidade de um alerta imediato e não invasivo.
-Atualmente, as soluções de mercado se concentram em aplicativos bloqueadores ou sensores veiculares, mas poucas combinam análise visual em tempo real para detectar o ato de segurar ou olhar o celular, sobretudo em diferentes condições de iluminação e ângulo.</p>
+        <p>Dentro do conteúdo da disciplina de Processamento de Vídeo, a RoadWatch, será um aplicativo cujo a sua principal função é detectar automaticamente o uso do celular enquanto o motorista dirige. </p>
 
 <p><strong>Justificativa:</strong> Desenvolver um sistema que identifique automaticamente o uso do celular durante a condução contribui para a redução de acidentes, atende às recomendações de segurança viária e aproveita técnicas de processamento de vídeo e visão computacional abordadas na disciplina.</p>
         <h4>(B) Objetivo</h4>
     <div style="font-family: Arial, sans-serif; line-height: 1.5;">
   <p>Criar um Sistema de Processamento de Vídeo (SPV) capaz de:</p>
   <ul>
-    <li>Capturar, em tempo real, a imagem do motorista por meio de uma câmera (ex.: webcam instalada no painel ou próximo ao retrovisor);</li>
-    <li>Detectar movimentos e posturas típicas do uso de celular, como telefone próximo ao ouvido, olhar para baixo ou toque na tela;</li>
-    <li>Emitir alertas visuais e/ou sonoros quando identificar uso de celular com o veículo em movimento;</li>
-    <li>Registrar métricas de detecção (porcentagem de acertos, falsos positivos/negativos), permitindo análise posterior.</li>
+    <li><strong>Captura de vídeo:</strong> o RoadWatch utiliza a câmera frontal do veículo (ou do próprio smartphone fixado no painel ou no para‐brisa) para captar imagens contínuas do rosto, mãos e ambiente à frente do condutor. </li>
+   <li><strong>Pré-processamento:</strong> as imagens são filtradas (redução de ruído, ajuste de brilho/contraste, normalização) e recortadas nas regiões de interesse (por exemplo, face, mãos, volante).</li>
+   <li><strong>Detecção de objetos / poses:</strong> algoritmos identificam, nos frames, os elementos-chave — como a mão segurando um smartphone, a face do motorista e a posição da cabeça — por meio de técnicas de detecção baseadas em redes neurais ou modelos clássicos.</li>
+   <li><strong>Classificação de ação / comportamento:</strong> com base em sequências de frames e características extraídas (ângulos de flexão de dedos, deslocamentos da mão, direção do olhar, tempo de fixação), o sistema classifica comportamentos em “uso do celular” ou “comportamento seguro”. Modelos de aprendizado de máquina (SVM, árvores, redes neurais profundas) treinados com datasets anotados são empregados para essa tarefa.</li>
+   <li><strong>Alerta em tempo real:</strong> quando o sistema detecta um padrão de risco (por exemplo, digitação, deslize, olhar prolongado para celular), ele emite um alerta audiovisual ou vibratório para chamar a atenção do motorista e inibir a continuidade da distração.   </li>
+   <li><strong>Registro e logging:</strong> o app registra os eventos detectados (tempo, tipo de distração, duração) para posterior análise, avaliação e refinamento do modelo.   </li>
+
   </ul>
 </div>
 
@@ -132,13 +136,27 @@ Atualmente, as soluções de mercado se concentram em aplicativos bloqueadores o
 <p>Com a cena preparada, os algoritmos de detecção de objetos e de análise de movimento identificam regiões correspondentes ao rosto e às mãos. O sistema compara continuamente a posição e os gestos detectados com padrões típicos do uso de celular, como a mão erguida próximo ao ouvido, o olhar direcionado para baixo ou o ato de segurar um aparelho retangular. Quando essas características coincidem com o veículo em movimento, o programa aciona de imediato um alerta sonoro e visual na tela, chamando a atenção do condutor para retomar o foco na direção.</p>
 
 <p>Todos os eventos são contabilizados, permitindo gerar ao final da viagem um resumo com estatísticas de tempo de distração e quantidade de alertas emitidos. Todo o processamento é feito localmente, sem envio de imagens para a nuvem, preservando a privacidade do usuário. Assim, o sistema atua de maneira autônoma e em tempo real, combinando captura, análise e notificação instantânea para prevenir acidentes causados pelo uso do celular durante a condução.</p>
+
+ <h4> Exemplo de Uso Prático</h4>
+ <div style="font-family: Arial, sans-serif; line-height: 1.5;">
+ <p>Imagine que um motorista está trafegando a 60 km/h em via urbana e recebe uma mensagem de texto. Ao decidir verificar o celular, ele levanta o olhar, a visão frontal se perde por cerca de 1,5 segundos, enquanto a mão se desloca à lateral. O RoadWatch identifica:</p>
+ <ul>
+    <li>movimento da mão em direção ao painel (rastreado por vários frames); </li>
+   <li>presença do smartphone na mão (detecção de objeto);</li>
+   <li>desvio do olhar (rosto/inclinação da cabeça);</li>
+   <li>padrão temporal de digitação (movimento repetitivo dos dedos sobre a tela).</li>
+  </ul>
+</div>
+
+<p>O modelo classifica essa sequência como “distração com uso de celular” e dispara um alerta sonoro e visual antes que o comportamento perdure ou cause risco elevado.</p>
+ 
         <h4>(D) Benefícios esperados</h4>
         <div style="font-family: Arial, sans-serif; line-height: 1.5;">
   <ul>
     <li><strong>Segurança:</strong> reduz riscos de acidentes ao alertar sobre distrações.</li>
     <li><strong>Conscientização:</strong> o relatório de uso reforça hábitos de direção segura.</li>
     <li><strong>Baixo custo e simplicidade:</strong> utiliza apenas uma câmera e processamento local, dispensando internet.</li>
-    <li><strong>Privacidade:</strong> não envia imagens para servidores externos, atendendo preocupações levantadas nas entrevistas.</li>
+    <li><strong>Integração acadêmica: </strong> o RoadWatch conecta diretamente os conceitos abordados na disciplina (filtragem, segmentação, rastreamento, classificação) com um caso de uso real e socialmente relevante.</li>
   </ul>
 </div>
 
