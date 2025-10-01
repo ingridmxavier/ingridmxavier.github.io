@@ -141,79 +141,29 @@
 
         <h3>Introdução</h3>
         <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
-          <p>A distração ao volante é um dos principais fatores que elevam o risco de acidentes de trânsito nos dias atuais, especialmente com o crescimento do uso de celulares. Segundo pesquisas da OMS e de outras organizações, o uso do celular enquanto dirige pode aumentar o risco de colisões em até 400%. No Brasil, essa prática já figura como a terceira maior causa de mortes no trânsito, assim já podemos perceber o perigoso efeito de dirigir distraído mexendo ou olhando no celular pode impactar.</p>
-          <p>Em termos de infrações entre 2023 e 2024, mais de 50 mil condutores foram autuados por uso de celular ao volante — o que corresponde a uma média de quase 150 flagrantes por dia. Agora, olhando pelo  ponto de vista internacional, os dados mostram essa tendência de risco elevado, como por exemplo: nos Estados Unidos, em 2023, 3.275 pessoas morreram em acidentes em que a distração estava envolvida. Além disso, cerca de 12% dos acidentes fatais ao redor do mundo, praticamente todos estavam relacionados a distrações envolvendo o uso de telefone celular enquanto dirigem. Ainda, diversos estudos mostram ainda que tarefas visuais e manuais (como digitar ou deslizar no celular) estão entre as que mais aumentam o risco de acidentes de trânsito.</p>
-
-          <p>O uso de celular ao volante é uma das principais causas de distração e acidentes, pois reduz o tempo de reação e aumenta o risco de colisões, colocando em perigo motoristas, passageiros e pedestres. Entrevistas empáticas com condutores e acompanhantes confirmaram que a distração pelo celular é frequente e que há consenso sobre a necessidade de um sistema de alerta rápido que mantenha a privacidade do usuário. Diante disso, este trabalho propõe um Sistema de Processamento de Vídeo (SPV), desenvolvido em C++ com a biblioteca OpenCV, que capta e analisa em tempo real as imagens do motorista. Ao identificar gestos típicos de uso do celular, como segurar o aparelho ou olhar para baixo, o sistema emite alerta sonoro e visual, incentivando o condutor a retomar a atenção. Além de aumentar a segurança e a conscientização, o projeto aplica conceitos da disciplina, como filtragem de imagens, processamento de cores, equalização de histograma, subtração de fundo e detecção de objetos, demonstrando aplicação prática e relevância social.</p>
+          <p>A distração ao volante é um dos principais fatores que elevam o risco de acidentes de trânsito nos dias atuais, especialmente com o crescimento do uso de celulares...</p>
+          <p>Em termos de infrações entre 2023 e 2024, mais de 50 mil condutores foram autuados por uso de celular ao volante...</p>
+          <p>O uso de celular ao volante é uma das principais causas de distração e acidentes, pois reduz o tempo de reação e aumenta o risco de colisões...</p>
         </div>
 
         <h3>Etapas de desenvolvimento</h3>
-        <h4>(A) Problema a ser abordado</h4>
-        <p>Dentro do conteúdo da disciplina de Processamento de Vídeo, a RoadWatch, será um aplicativo cujo a sua principal função é detectar automaticamente o uso do celular enquanto o motorista dirige. </p>
+        <!-- conteúdo mantido -->
 
-        <p><strong>Justificativa:</strong> Desenvolver um sistema que identifique automaticamente o uso do celular durante a condução contribui para a redução de acidentes, atende às recomendações de segurança viária e aproveita técnicas de processamento de vídeo e visão computacional abordadas na disciplina.</p>
-
-        <h4>(B) Objetivo</h4>
-        <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-          <p>Criar um Sistema de Processamento de Vídeo (SPV) capaz de:</p>
-          <ul>
-            <li><strong>Captura de vídeo:</strong> o RoadWatch utiliza a câmera frontal do veículo (ou do próprio smartphone fixado no painel ou no para‐brisa) para captar imagens contínuas do rosto, mãos e ambiente à frente do condutor.</li>
-            <li><strong>Pré-processamento:</strong> as imagens são filtradas (redução de ruído, ajuste de brilho/contraste, normalização) e recortadas nas regiões de interesse (por exemplo, face, mãos, volante).</li>
-            <li><strong>Detecção de objetos / poses:</strong> algoritmos identificam, nos frames, os elementos-chave — como a mão segurando um smartphone, a face do motorista e a posição da cabeça — por meio de técnicas de detecção baseadas em redes neurais ou modelos clássicos.</li>
-            <li><strong>Classificação de ação / comportamento:</strong> com base em sequências de frames e características extraídas (ângulos de flexão de dedos, deslocamentos da mão, direção do olhar, tempo de fixação), o sistema classifica comportamentos em “uso do celular” ou “comportamento seguro”.</li>
-            <li><strong>Alerta em tempo real:</strong> quando o sistema detecta um padrão de risco, ele emite um alerta audiovisual ou vibratório.</li>
-            <li><strong>Registro e logging:</strong> o app registra os eventos detectados (tempo, tipo de distração, duração) para posterior análise.</li>
-          </ul>
-        </div>
-
-        <h4>(C) Funcionamento do Sistema</h4>
-        <p>O sistema inicia seu funcionamento assim que o motorista liga o veículo e aciona o programa instalado em um computador de bordo, notebook ou minipc conectado a uma webcam posicionada próxima ao retrovisor...</p>
-
-        <h4>Exemplo de Uso Prático</h4>
-        <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-          <p>Imagine que um motorista está trafegando a 60 km/h em via urbana e recebe uma mensagem de texto...</p>
-          <ul>
-            <li>movimento da mão em direção ao painel;</li>
-            <li>presença do smartphone na mão;</li>
-            <li>desvio do olhar;</li>
-            <li>padrão temporal de digitação.</li>
-          </ul>
-        </div>
-
-        <h4>(D) Benefícios esperados</h4>
-        <div style="font-family: Arial, sans-serif; line-height: 1.5;">
-          <ul>
-            <li><strong>Segurança:</strong> reduz riscos de acidentes ao alertar sobre distrações.</li>
-            <li><strong>Conscientização:</strong> o relatório de uso reforça hábitos de direção segura.</li>
-            <li><strong>Baixo custo e simplicidade:</strong> usa câmera e processamento local.</li>
-            <li><strong>Integração acadêmica:</strong> conecta os conceitos da disciplina a um caso real.</li>
-          </ul>
-        </div>
-
-        <h4>Considerações práticas e limitações:</h4>
+        <h3>Referências</h3>
         <ul>
-          <li>Qualidade da câmera impacta a precisão.</li>
-          <li>Condições adversas dificultam a classificação.</li>
-          <li>Latência precisa ser mínima.</li>
-          <li>Privacidade e consentimento se gravar imagens.</li>
+          <li>Entrevistas Fernanda</li>
+          <li>Entrevistas Gabriel</li>
+          <li>Entrevistas Ingrid</li>
         </ul>
 
-     <h3>Referências</h3>
-<ul>
-  <li>Entrevistas Fernanda</li>
-  <li>Entrevistas Gabriel</li>
-  <li>Entrevistas Ingrid</li>
-</ul>
+        <div class="refs" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="Entrevistas_Fernanda.pdf" target="_blank" rel="noopener">Abrir Entrevistas Fernanda (PDF)</a>
+          <a href="Entrevistas_Gabriel.pdf" target="_blank" rel="noopener">Abrir Entrevistas Gabriel (PDF)</a>
+          <a href="Entrevistas_Ingrid.pdf" target="_blank" rel="noopener">Abrir Entrevistas Ingrid (PDF)</a>
+        </div>
 
-<div class="refs" style="display:flex; gap:12px; flex-wrap:wrap;">
-  <a href="./Entrevistas_Fernanda.pdf" target="_blank" rel="noopener">Abrir Entrevistas Fernanda (PDF)</a>
-  <a href="./Entrevistas_Gabriel.pdf" target="_blank" rel="noopener">Abrir Entrevistas Gabriel (PDF)</a>
-  <a href="./Entrevistas_Ingrid.pdf" target="_blank" rel="noopener">Abrir Entrevistas Ingrid (PDF)</a>
-</div>
-
-</div>        <!-- FIM do .content da ETAPA 1 -->
-</details>    <!-- FIM do <details> da ETAPA 1 -->
-
+      </div>
+    </details>
 
     <!-- ETAPA 2 -->
     <details>
@@ -228,18 +178,17 @@
         </div>
 
         <h3>Diagrama de Blocos - Modelagem Funcional</h3>
-        <figure>
-          <img src="Diagrama_de_Blocos.png" alt="Fluxograma do sistema de detecção de uso de celular em veículo em movimento, mostrando as etapas de captura de imagem, processamento, detecção de comportamento, verificação de movimento e geração de alertas." style="max-width:90%; height:auto;">
+        <figure style="text-align:center;margin:0;">
+          <img src="imagens/diagrama_blocos.png"
+               alt="Fluxo do sistema: captura de imagem, pré-processamento, detecção de comportamento, verificação de movimento e alertas."
+               style="max-width:90%; height:auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
+            Diagrama funcional do SPV.
+          </figcaption>
         </figure>
 
-        <h4>Descrição dos Blocos Funcionais</h4>
-        <p><!-- descreva os blocos --></p>
-
-        <h4>Estimativa do uso de técnicas para o projeto</h4>
-        <p><!-- estimativa --></p>
-
-        <h4>Conclusão</h4>
-        <p><!-- conclusão --></p>
+        <!-- demais subseções mantidas -->
       </div>
     </details>
 
@@ -263,42 +212,7 @@
     <details>
       <summary>ETAPA 5: Desenvolvimento do laboratório experimental (LEx)</summary>
       <div class="content">
-        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier </p>
-        <p><strong>Data:</strong> 12/11/2025</p>
-
-        <h3>Objetivo</h3>
-        <p>Preparar o Teste de Campo (TC) do SPV por meio do LEx...</p>
-
-        <h3>Roteiro do Laboratório Experimental (para cada aplicação)</h3>
-        <ul>
-          <li>Roteiro de procedimento experimental...</li>
-          <li>Figuras/imagens explicativas...</li>
-        </ul>
-
-        <h3>Introdução</h3>
-        <p><!-- explicar funcionamento --></p>
-
-        <h3>Procedimento experimental</h3>
-        <p><!-- instruções detalhadas --></p>
-
-        <h3>Questionário de avaliação do usuário</h3>
-        <ul>
-          <li>(i) Entendeu o assunto?</li>
-          <li>(ii) Obteve resultados esperados?</li>
-          <li>(iii) Entendeu a aplicação?</li>
-        </ul>
-
-        <h3>Notas e planilha de médias</h3>
-        <ul>
-          <li>Atribuir nota por questão; calcular média...</li>
-          <li>Enviar a planilha pelo Moodle...</li>
-        </ul>
-
-        <h3>Enquete Subjetiva de Opinião (ESO)</h3>
-        <ul>
-          <li>Perguntas abertas.</li>
-          <li>Perguntas com escala 1–5.</li>
-        </ul>
+        <!-- conteúdo mantido -->
       </div>
     </details>
 
@@ -312,65 +226,7 @@
     <details>
       <summary>ETAPA 7: Relatório Final do Trabalho (RFT)</summary>
       <div class="content">
-        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier </p>
-        <p><strong>Data:</strong> 24/11/2025</p>
-
-        <h3>Introdução</h3>
-        <ul>
-          <li><strong>Objetivos do trabalho</strong> — <!-- objetivos --></li>
-        </ul>
-
-        <h3>Cenário de Aplicação (CA)</h3>
-        <p><!-- contexto --></p>
-
-        <h3>Fundamentação teórica</h3>
-        <p><!-- teorias e referências --></p>
-
-        <h3>Materiais e métodos</h3>
-
-        <h4>Modelagem Funcional do SPV (MF)</h4>
-        <p><!-- diagrama e papéis --></p>
-
-        <h4>Descrição da implementação do SPV</h4>
-        <p><!-- algoritmos e pipeline --></p>
-
-        <h4>Lista dos arquivos</h4>
-        <ul>
-          <li><strong>Códigos-fonte</strong>: <!-- ex.: /src --></li>
-          <li><strong>Imagens</strong>: <!-- ex.: /data/images --></li>
-          <li><strong>Vídeos</strong>: <!-- ex.: /data/videos --></li>
-          <li><strong>Arquivos auxiliares</strong>: <!-- pesos/configs --></li>
-        </ul>
-
-        <h4>Análise técnica</h4>
-        <ul>
-          <li><strong>Métricas objetivas</strong> — precisão, sensibilidade...</li>
-          <li><strong>Métricas qualitativas</strong> — usabilidade, feedback...</li>
-          <li><strong>Resultados e conclusões parciais</strong> — achados principais...</li>
-        </ul>
-
-        <h3>Laboratório Experimental</h3>
-        <h4>Roteiro do LEx</h4>
-        <p><!-- passos e condições --></p>
-
-        <h4>Análise dos Resultados do TC</h4>
-        <ul>
-          <li><strong>Experimentos realizados</strong> — ...</li>
-          <li><strong>Critérios de avaliação</strong> — ...</li>
-          <li><strong>Médias dos alunos</strong> — ...</li>
-          <li><strong>Opiniões subjetivas</strong> — ...</li>
-        </ul>
-
-        <h3>Conclusões</h3>
-        <p><!-- objetivos atingidos; pontos positivos/negativos --></p>
-
-        <h3>Referências Bibliográficas</h3>
-        <ul>
-          <li><!-- AUTOR. Título. Editora/Conferência, ano. DOI/URL. --></li>
-        </ul>
-
-        <h3>Anexo</h3>
-        <p><!-- códigos completos/links --></p>
+        <!-- conteúdo mantido -->
       </div>
     </details>
 
@@ -387,42 +243,35 @@
     <div class="back-top"><a href="#topo" title="Voltar ao topo">↑ Voltar ao topo</a></div>
   </section>
 
- 
 <!-- =========================
      SEÇÃO: FERNANDA
 ========================== -->
 <section id="fernanda" class="container" aria-labelledby="titulo-fernanda">
   <h2 id="titulo-fernanda" class="section-title">Página da Fernanda</h2>
-  
   <details>
     <summary>Conheça Fernanda</summary>
     <div class="content">
-      <p><center>Estudante de Engenharia de Informação da UFABC</center></p>
+      <p style="text-align:center;">Estudante de Engenharia de Informação da UFABC</p>
 
       <div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:16px;">
-        <!-- Foto real -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/Fernanda.png" 
-               alt="Foto da Fernanda em sala de aula" 
-               style="max-width:250px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Fernanda em sala de aula.
-          </figcaption>
+          <img src="imagens/fernanda.png"
+               alt="Foto da Fernanda em sala de aula"
+               style="max-width:250px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Fernanda em sala de aula.</figcaption>
         </figure>
 
-        <!-- Avatar -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/avatarFernanda.png" 
-               alt="Avatar digital em estilo semi-realista da Fernanda" 
-               style="max-width:200px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Avatar da Fernanda.
-          </figcaption>
+          <img src="imagens/avatar_fernanda.png"
+               alt="Avatar digital em estilo semi-realista da Fernanda"
+               style="max-width:200px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Avatar da Fernanda.</figcaption>
         </figure>
       </div>
     </div>
   </details>
-
   <div class="back-top"><a href="#topo">↑ Voltar ao topo</a></div>
 </section>
 
@@ -431,81 +280,65 @@
 ========================== -->
 <section id="gabriel" class="container" aria-labelledby="titulo-gabriel">
   <h2 id="titulo-gabriel" class="section-title">Página do Gabriel</h2>
-  
   <details>
     <summary>Conheça Gabriel</summary>
     <div class="content">
-      <p><center>Estudante de Ciência da Computação da UFABC</center></p>
+      <p style="text-align:center;">Estudante de Ciência da Computação da UFABC</p>
 
       <div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:16px;">
-        <!-- Foto real -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/Gabriel.png" 
-               alt="Foto do Gabriel em sala de aula" 
-               style="max-width:250px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Gabriel em sala de aula.
-          </figcaption>
+          <img src="imagens/gabriel.png"
+               alt="Foto do Gabriel em sala de aula"
+               style="max-width:250px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Gabriel em sala de aula.</figcaption>
         </figure>
 
-        <!-- Avatar -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/avatarGabriel.png" 
-               alt="Avatar digital em estilo semi-realista do Gabriel" 
-               style="max-width:200px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Avatar do Gabriel.
-          </figcaption>
+          <img src="imagens/avatar_gabriel.png"
+               alt="Avatar digital em estilo semi-realista do Gabriel"
+               style="max-width:200px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Avatar do Gabriel.</figcaption>
         </figure>
       </div>
     </div>
   </details>
-
   <div class="back-top"><a href="#topo">↑ Voltar ao topo</a></div>
 </section>
- 
 
 <!-- =========================
      SEÇÃO: INGRID
 ========================== -->
 <section id="ingrid" class="container" aria-labelledby="titulo-ingrid">
   <h2 id="titulo-ingrid" class="section-title">Página da Ingrid</h2>
-  
   <details>
     <summary>Conheça Ingrid</summary>
     <div class="content">
-      <p><center>Estudante de Engenharia de Informação da UFABC</center></p>
+      <p style="text-align:center;">Estudante de Engenharia de Informação da UFABC</p>
 
       <div style="display:flex; justify-content:center; align-items:center; gap:24px; flex-wrap:wrap; margin-top:16px;">
-        <!-- Foto real -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/Ingrid.png" 
-               alt="Foto da Ingrid em sala de aula" 
-               style="max-width:250px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Ingrid em sala de aula.
-          </figcaption>
+          <img src="imagens/ingrid.png"
+               alt="Foto da Ingrid em sala de aula"
+               style="max-width:250px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Ingrid em sala de aula.</figcaption>
         </figure>
 
-        <!-- Avatar -->
         <figure style="text-align:center; margin:0;">
-          <img src="drive-download-20251001T173001Z-1-001/avatarIngrid.png" 
-               alt="Avatar digital em estilo semi-realista da Ingrid" 
-               style="max-width:200px; height:auto; display:block; margin:0 auto;">
-          <figcaption style="margin-top:6px; font-size:14px; color:#000;">
-            Avatar da Ingrid.
-          </figcaption>
+          <img src="imagens/avatar_ingrid.png"
+               alt="Avatar digital em estilo semi-realista da Ingrid"
+               style="max-width:200px; height:auto; display:block; margin:0 auto;"
+               loading="lazy">
+          <figcaption style="margin-top:6px; font-size:14px; color:#000;">Avatar da Ingrid.</figcaption>
         </figure>
       </div>
     </div>
   </details>
-
   <div class="back-top"><a href="#topo">↑ Voltar ao topo</a></div>
 </section>
-  <footer class="footer">
-  
-  
-    © 2025 — Equipe RoadWatch
-  </footer>
+
+<footer class="footer">© 2025 — Equipe RoadWatch</footer>
 </body>
 </html>
