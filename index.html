@@ -635,12 +635,55 @@
 </div>
 
         <h4> (B) Leitura e gravação de vídeo: </h4>
-        <p>inserir</p>
+<h4 style="text-align:left;"> 1) video_read_from_files</h4>
+<p> O programa video_read utiliza a biblioteca OpenCV para abrir, ler e exibir um vídeo a partir do arquivo "Resources/Cars.mp4", mostrando cada frame em uma janela chamada "Frame" e permitindo que o usuário interrompa a reprodução pressionando a tecla 'q'. </p>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/Captura de tela de 2025-10-01 11-38-24.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    A imagem exibe um frame do vídeo "Cars.mp4", mostrando a captura em tempo   real após a execução do programa.
+  </figcaption>
+
+<h4 style="text-align:left;">2) video_read_from_image_sequence</h4><p>O programa lê uma sequência de imagens numeradas (Cars0001.jpg, Cars0002.jpg, etc.) e as exibe em sequência como se fossem um vídeo, utilizando a biblioteca OpenCV. Ele verifica se os arquivos podem ser abertos, mostra cada frame em uma janela, aguarda 20 ms entre os frames e permite que o usuário interrompa a reprodução pressionando a tecla q. Ao final, todas as janelas são fechadas e os recursos são liberados corretamente.
+</p>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/Captura de tela de 2025-10-01 11-53-22.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    Janela do programa exibindo um frame da sequência de imagens do vídeo “Cars”.
+  </figcaption>
+
+<h4 style="text-align:left;"> 3) video_read_from_webcam</h4>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/Captura de tela de 2025-10-01 11-44-32.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    A imagem exibe um frame do vídeo "Cars.mp4", mostrando a captura em tempo   real após a execução do programa.
+  </figcaption>
+
+<h4 style="text-align:left;"> 4) video_write_from_webcam</h4>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/Captura de tela de 2025-10-01 11-38-24.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    A imagem exibe um frame do vídeo "Cars.mp4", mostrando a captura em tempo   real após a execução do programa.
+  </figcaption>
+
+<h4 style="text-align:left;"> 5) video_write_to_file</h4>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/Captura de tela de 2025-10-01 11-45-32.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    A imagem exibe um frame do vídeo "Cars.mp4", mostrando a captura em tempo   real após a execução do programa.
+  </figcaption>
         
-        
-        
-      <h4> Obtenção de Fotos e Vídeos</h4>
-      <h4> a) </h4>
+      <h4 style="text-align:left;"> Obtenção de Fotos e Vídeos</h4>
+      <h4 style="text-align:left;"> a) </h4>
       <figure style="text-align:center; margin:16px auto;">
   <img src="imagens/equipe.png" 
        alt="Descrição acessível da imagem exibida" 
@@ -650,7 +693,7 @@
   </figcaption>
 </figure>
 
-  <h4> b) </h4>
+  <h4 style="text-align:left;"> b) </h4>
       <figure style="text-align:center; margin:16px auto;">
   <img src="imagens/avatares_juntos.png"
        alt="Descrição acessível da imagem exibida" 
@@ -660,7 +703,7 @@
   </figcaption>
 </figure>
 
- <h4> c) Vídeo com a webcam com pessoas e com um objeto:</h4>
+ <h4 style="text-align:left;"> c) Vídeo com a webcam com pessoas e com um objeto:</h4>
     <figure style="text-align:center">
   <div style="position:relative; max-width:900px; margin:12px auto; aspect-ratio:16/9;">
     <video id="vid1"
@@ -703,9 +746,6 @@
   </p>
 </figure>
 
-
-  <p><strong>No relatório, apresentar e explicar os programas elaborados pela equipe para a gravação das
-imagens e dos vídeos .  </strong></p>
 
       <div class="card">
         <h3>5. Conclusões</h3>
