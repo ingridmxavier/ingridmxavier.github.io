@@ -675,10 +675,17 @@
 <p style="margin: 16px 32px; text-align: justify;">
   O programa captura um vídeo em tempo real a partir da webcam do computador, exibindo os quadros em uma nova janela e simultaneamente salvando o vídeo em um novo arquivo.
 </p>
-      <figure style="text-align:center; margin:16px auto;">
-  <img src="imagens/Gravação de Tela 2025-10-04 145536.mp4" 
-       alt="Descrição acessível da imagem exibida" 
-       style="max-width:60%; height:auto; border:1px solid #ccc; border-radius:8px;">
+      <figure style="text-align:center">
+  <div style="position:relative; max-width:900px; margin:12px auto; aspect-ratio:16/9;">
+    <video id="vid1"
+           controls
+           preload="metadata"
+           playsinline
+           style="width:100%; height:100%; display:block; border:1px solid #ddd; border-radius:10px;">
+      <source src="imagens/Gravação de Tela 2025-10-04 145536.mp4" type="video/mp4">
+      Seu navegador não suporta o elemento <code>video</code>.
+    </video>
+  </div>
   <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
     Captura de vídeo em tempo real a partir da webcam do computador.
   </figcaption>
