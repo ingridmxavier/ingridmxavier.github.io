@@ -528,7 +528,6 @@
   <p>Os conceitos acima (E/S de imagens, leitura/gravação de vídeos e captura com webcam) atendem aos objetivos do Laboratório 1 e servem de base para o desenvolvimento do sistema RoadWatch nas etapas seguintes.</p>
 </div>
 
-        </div>
 
 <div class="card">
   <h3>3. Materiais e Métodos</h3>
@@ -607,63 +606,16 @@
     <li>Guardar <strong>prints de terminal</strong> com logs de execução e mensagens de erro (se houver).</li>
   </ul>
 
-  <!-- blocos opcionais com trechos didáticos, mantendo simplicidade -->
-  <details>
-    <summary>Exemplo didático (C++/OpenCV) — imagem</summary>
-    <div class="content">
-      <pre><code>// g++ img_io.cpp -o img_io `pkg-config --cflags --libs opencv4`
-// ./img_io imagens/messi5.jpg imagens/saida.png
-#include &lt;opencv2/opencv.hpp&gt;
-int main(int argc, char** argv){
-  if(argc &lt; 3) return 1;
-  cv::Mat img = cv::imread(argv[1]);        // leitura
-  if(img.empty()) return 1;
-  cv::imshow("Imagem", img);                // exibição
-  cv::imwrite(argv[2], img);                // gravação
-  cv::waitKey(0);
-  return 0;
-}
-</code></pre>
-    </div>
-  </details>
-
-  <details>
-    <summary>Exemplo didático (C++/OpenCV) — vídeo</summary>
-    <div class="content">
-      <pre><code>// g++ video_rw.cpp -o video_rw `pkg-config --cflags --libs opencv4`
-// ./video_rw videos/big_buck_bunny.mp4 videos/saida.mp4
-#include &lt;opencv2/opencv.hpp&gt;
-int main(int argc, char** argv){
-  if(argc &lt; 3) return 1;
-  cv::VideoCapture cap(argv[1]);            // leitura
-  if(!cap.isOpened()) return 1;
-  int w = (int)cap.get(cv::CAP_PROP_FRAME_WIDTH);
-  int h = (int)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
-  double fps = cap.get(cv::CAP_PROP_FPS);
-  cv::VideoWriter out(argv[2], cv::VideoWriter::fourcc('m','p','4','v'), fps, cv::Size(w,h));
-  cv::Mat frame;
-  while(cap.read(frame)){
-    cv::imshow("Vídeo", frame);             // exibição
-    out.write(frame);                       // gravação
-    if(cv::waitKey(1) == 27) break;         // ESC para sair
-  }
-  return 0;
-}
-</code></pre>
-    </div>
-  </details>
-</div>
-
-        </div>
-
         <div class="card">
           <h3>4. Resultados e Análises</h3>
+          <h4>(A) Leitura de imagem em arquivo e exibir na tela:</h4>
+          <p> Versão do programa para leitura de imagem pela execução na linha de comando.</p>
           <div style="text-align: center; font-family: Arial, sans-serif;">
   <figure>
     <img src="imagens/captura_displayimage.png" 
          alt="Captura de tela no Linux mostrando a execução do programa DisplayImage no terminal. Uma janela chamada 'Display Image' exibe uma foto de um jogador de futebol em uniforme azul e grená do Barcelona, realizando um movimento com a bola em campo." 
          style="max-width: 90%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-    <figcaption style="margin-top: 8px; font-size: 14px; color: #333;">
+    <figcaption style="margin-top: 8px; font-size: 14px; color: ##000000;">
       Captura de tela do programa <b>DisplayImage</b> em execução no terminal Linux, 
       exibindo uma janela com a imagem de um jogador de futebol em campo. 
       Esse resultado demonstra o correto funcionamento do código para abertura de imagens.
@@ -676,11 +628,84 @@ int main(int argc, char** argv){
     <img src="imagens/py.png" 
          alt="Captura de tela no Linux mostrando a execução do programa DisplayImage no terminal. Uma janela chamada 'Display Image' exibe uma foto de um jogador de futebol em uniforme azul e grená do Barcelona, realizando um movimento com a bola em campo." 
          style="max-width: 90%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-    <figcaption style="margin-top: 8px; font-size: 14px; color: #333;">
+    <figcaption style="margin-top: 8px; font-size: 14px; color: ##000000;">
       Configurando o Python
     </figcaption>
   </figure>
 </div>
+
+        <h4> (B) Leitura e gravação de vídeo: </h4>
+        <p>inserir</p>
+        
+        
+        
+      <h4> Obtenção de Fotos e Vídeos</h4>
+      <h4> a) </h4>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/equipe.png" 
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:90%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    Foto de todos integrantes do grupo obtida via webcam.
+  </figcaption>
+</figure>
+
+  <h4> b) </h4>
+      <figure style="text-align:center; margin:16px auto;">
+  <img src="imagens/avatares_juntos.png"
+       alt="Descrição acessível da imagem exibida" 
+       style="max-width:70%; height:auto; border:1px solid #ccc; border-radius:8px;">
+  <figcaption style="margin-top:8px; font-size:14px; color:#00000;">
+    Avatares dos integrantes do grupo.
+  </figcaption>
+</figure>
+
+ <h4> c) Vídeo com a webcam com pessoas e com um objeto:</h4>
+    <figure style="text-align:center">
+  <div style="position:relative; max-width:900px; margin:12px auto; aspect-ratio:16/9;">
+    <video id="vid1"
+           controls
+           preload="metadata"
+           playsinline
+           style="width:100%; height:100%; display:block; border:1px solid #ddd; border-radius:10px;">
+      <source src="imagens/Grava%C3%A7%C3%A3o%20de%20tela%20de%202025-10-01%2011-34-00.webm" type="video/webm">
+      Seu navegador não suporta o elemento <code>video</code>.
+    </video>
+  </div>
+  <figcaption>Leitura e gravação de vídeo com mudanças lentas de movimento  — reprodução local.</figcaption>
+
+  <!-- teste: abrir o arquivo direto -->
+  <p style="margin-top:8px">
+    <a href="imagens/Grava%C3%A7%C3%A3o%20de%20tela%20de%202025-10-01%2011-34-00.webm" target="_blank" rel="noopener">
+      Abrir arquivo WEBM diretamente
+    </a>
+  </p>
+</figure>
+
+    <figure style="text-align:center">
+  <div style="position:relative; max-width:900px; margin:12px auto; aspect-ratio:16/9;">
+    <video id="vid1"
+           controls
+           preload="metadata"
+           playsinline
+           style="width:100%; height:100%; display:block; border:1px solid #ddd; border-radius:10px;">
+      <source src="imagens/Gravação de tela de 2025-10-01 11-35-37.webm " type="video/webm">
+      Seu navegador não suporta o elemento <code>video</code>.
+    </video>
+  </div>
+  <figcaption>Leitura e gravação de vídeo com mudanças rápidas de movimento — reprodução local.</figcaption>
+
+  <!-- teste: abrir o arquivo direto -->
+  <p style="margin-top:8px">
+    <a href="imagens/Grava%C3%A7%C3%A3o%20de%20tela%20de%202025-10-01%2011-34-00.webm" target="_blank" rel="noopener">
+      Abrir arquivo WEBM diretamente
+    </a>
+  </p>
+</figure>
+
+
+  <p><strong>No relatório, apresentar e explicar os programas elaborados pela equipe para a gravação das
+imagens e dos vídeos .  </strong></p>
 
         <div class="card">
           <h3>5. Conclusões</h3>
