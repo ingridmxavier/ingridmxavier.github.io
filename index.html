@@ -819,9 +819,83 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 </p>
       <h3>2. Fundamentos Básicos</h3>
       <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
+  <p><strong>Objetivo:</strong> reduzir variações de alta frequência (ruído/detalhes finos) preservando estruturas relevantes (bordas e texturas). É etapa comum de pré-processamento para segmentação, detecção de bordas e descrição de regiões.</p>
+
+  <h3>1) Modelo de ruído</h3>
+  <p>Imagem observada: <code>g(x,y) = f(x,y) + n(x,y)</code>, onde <em>f</em> é a imagem ideal e <em>n</em> o ruído (gaussiano, sal-e-pimenta etc.). A filtragem busca aproximar <em>f</em> atenuando <em>n</em>.</p>
+
+  <h3>2) Filtragem espacial e convolução</h3>
+  <p>Filtros aplicam uma máscara (<em>kernel</em>) sobre vizinhanças. Em filtros lineares:</p>
+  <p style="margin:8px 0"><code>I'(x,y) = Σ Σ K(i,j) · I(x+i, y+j)</code></p>
+  <p>É necessário definir tratamento de borda (<code>padding</code>: replicar, refletir, constante).</p>
+
+  <h3>3) Tamanho do kernel (3×3, 5×5, 7×7, 11×11)</h3>
+  <ul>
+    <li><strong>Maior kernel</strong>: remove mais ruído, porém aumenta borramento e custo computacional.</li>
+    <li><strong>Menor kernel</strong>: preserva detalhes/bordas, remove menos ruído.</li>
+  </ul>
+
+  <h3>4) Tipos de filtro</h3>
+  <ul>
+    <li><strong>Média (box blur) — linear:</strong> substitui pelo valor médio da vizinhança. Simples e rápido; tende a borrar bordas.</li>
+    <li><strong>Gaussiano — linear:</strong> pesos conforme distribuição normal (maior peso no centro). Melhor que a média para preservar bordas; parâmetro-chave: <em>σ</em>.</li>
+    <li><strong>Mediana — não linear:</strong> substitui pelo valor mediano. Excelente para <em>sal-e-pimenta</em>; preserva bordas finas; pode “achatar” texturas.</li>
+    <li><strong>Bilateral — não linear (espaço + intensidade):</strong> suaviza regiões mantendo bordas ao reduzir peso quando a diferença de intensidade é grande. Qualidade alta, custo computacional maior; sensível a <code>d</code>, <code>sigmaColor</code>, <code>sigmaSpace</code>.</li>
+  </ul>
+
+  <h3>5) Ruído sal-e-pimenta</h3>
+  <ul>
+    <li><strong>Mediana</strong> costuma ser a melhor escolha (remove impulsos sem espalhá-los).</li>
+    <li><strong>Média/Gaussiano</strong> reduzem mas podem espalhar impulsos (halos).</li>
+    <li><strong>Bilateral</strong> pode funcionar bem, porém exige ajuste fino e é mais lento.</li>
+  </ul>
+
+  <h3>6) Métricas para análise</h3>
+  <ul>
+    <li><strong>Avaliação visual</strong> de borramento e preservação de bordas.</li>
+    <li><strong>Histograma</strong> (estreitamento indica suavização).</li>
+    <li><strong>PSNR/SSIM</strong> quando houver referência limpa (opcional).</li>
+    <li><strong>Tempo de execução</strong> (cresce com o kernel; bilateral é o mais caro).</li>
+  </ul>
+
+  <h3>7) Boas práticas (OpenCV)</h3>
+  <ul>
+    <li>Para RGB, filtrar por canal ou converter para tons de cinza para análise.</li>
+    <li>Escolher borda adequada (<code>BORDER_REFLECT</code> geralmente é bom padrão).</li>
+    <li>Registrar parâmetros (tipo de filtro + kernel + σ) e salvar resultados por pasta (exigência do lab).</li>
+  </ul>
+
+  <h3>8) Expectativa ao variar o kernel</h3>
+  <ul>
+    <li><strong>3×3</strong>: leve redução de ruído; detalhes preservados.</li>
+    <li><strong>5×5 / 7×7</strong>: bom compromisso entre limpeza e nitidez.</li>
+    <li><strong>11×11</strong>: forte suavização; útil para ruído pesado, com perda de texturas.</li>
+  </ul>
+
+
       <h3>3. Materiais e Métodos</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
-      <p> diagrama de bloco</p>
+      <p style="text-align:justify;">Os experimentos foram realizados utilizando a linguagem de programação C++ e a biblioteca OpenCV 4.x, em ambiente Linux (Ubuntu), com o compilador g++ e editor de código Visual Studio Code. Foram empregadas funções nativas do OpenCV para leitura, exibição e gravação de imagens, tais como `imread()`, `imshow()` e `imwrite()`, além das funções de filtragem `blur()`, `GaussianBlur()`, `medianBlur()` e `bilateralFilter()`. Para a parte prática envolvendo captura de vídeo, utilizou-se também a função `VideoCapture()` para acesso à webcam do computador. A imagem original utilizada como base foi a obtida no Laboratório 1, sendo processada e salva em formato .jpg em diferentes etapas.</p>
+
+<p style="text-align:justify;">Inicialmente, desenvolveu-se um programa para aplicar quatro tipos de filtros espaciais — média, gaussiano, mediana e bilateral — sobre a imagem original, utilizando um kernel de tamanho 3×3. O procedimento foi repetido com os tamanhos de kernel 5×5, 7×7 e 11×11, de modo a avaliar a influência do aumento da vizinhança na suavização da imagem. Cada imagem resultante foi armazenada em pastas distintas, nomeadas de acordo com o filtro e o tamanho do kernel utilizado. Em seguida, os resultados foram analisados visualmente para verificar o efeito do aumento do kernel sobre a nitidez e a preservação das bordas, bem como a diferença de desempenho entre os tipos de filtros aplicados.</p>
+
+<p style="text-align:justify;">Na segunda etapa, adicionou-se ruído do tipo sal-e-pimenta à imagem original e repetiram-se as filtragens. O objetivo foi comparar a eficiência de cada filtro na remoção desse tipo de ruído impulsivo, observando a suavização e a preservação das bordas. Posteriormente, foi desenvolvido um novo programa para processar imagens capturadas em tempo real pela webcam, permitindo aplicar dois dos filtros estudados — selecionados com base nos melhores e piores resultados das etapas anteriores. A exibição dos resultados foi feita em uma janela do OpenCV, com a possibilidade de salvar a imagem corrente ao pressionar a tecla “s”.</p>
+
+<p style="text-align:justify;">Por fim, foi elaborado um programa adicional (desafio opcional) que permite ao usuário selecionar o tipo de filtro e o tamanho do kernel por meio do teclado, durante a execução da captura da webcam. As teclas [a], [g], [m] e [b] foram associadas aos filtros de média, gaussiano, mediana e bilateral, respectivamente, enquanto as teclas [3], [5], [7], [9] e [11] definiram os tamanhos de kernel correspondentes. O sistema exibia em tempo real o resultado da filtragem conforme as seleções do usuário. Todo o conjunto de imagens processadas foi salvo de forma organizada em subpastas nomeadas conforme o tipo de filtro e o kernel utilizados, permitindo uma análise sistemática dos efeitos de cada variação.
+</p>
+
+<p><strong>Diagrama de bloco</strong></p>
+<figure style="max-width: 720px; margin: 16px auto; text-align: center;">
+  <img src="imagens/diagrama_bloco2.png"
+       alt="Diagrama de blocos do experimento de filtragem e suavização de imagens com decisões if, sim e não."
+       loading="lazy"
+       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
+  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
+    Diagrama de Blocos — Filtragem e Suavização de Imagens (OpenCV).
+  </figcaption>
+</figure>
+
+
+  
       <h3>4. Resultados e Análises</h3>
       <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
       <h3>5. Conclusões</h3>
