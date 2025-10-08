@@ -898,128 +898,141 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
       <p><strong>1)</strong> Nesta parte, usamos nossas próprias imagens obtidas no Lab1.</p> 
 
    <p style="text-align:justify;">Elaboramos um programa que realize as filtragens (com os filtros de média, gaussiano, mediana, e bilateral) na sua imagem com um kernel 3x3, e salvamos as imagens resultantes de cada filtragem, em formato .jpg.  Repita todas filtragens, elaborando novos programas com kernel 5x5, 7x7, e 11x11, salvando a imagem resultante de cada kernel. </p>
-    <figure style="max-width: 720px; margin: 16px auto; text-align: center;">
-  <img src="imagens/foto_grupo.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Foto em grupo original do Lab 1.
-  </figcaption>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filtragens — Resultados do Lab 1</title>
+<style>
+  body {
+    background-color: #eebbbb;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 16px;
+  }
+  p {
+    text-align: justify;
+    margin: 16px auto;
+    max-width: 900px;
+  }
+  figure {
+    max-width: 720px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  figure img {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+  }
+  figcaption {
+    font: 14px/1.4 Arial, sans-serif;
+    color: #000;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<p>Elaboramos um programa que realize as filtragens (com os filtros de média, gaussiano, mediana e bilateral) na sua imagem com um kernel 3x3, e salvamos as imagens resultantes de cada filtragem, em formato .jpg.  
+Repita todas filtragens, elaborando novos programas com kernel 5x5, 7x7 e 11x11, salvando a imagem resultante de cada kernel.</p>
+
+<figure>
+  <img src="imagens/foto_grupo.jpg" alt="Foto em grupo original do Lab 1.">
+  <figcaption>Foto em grupo original do Lab 1.</figcaption>
 </figure>
 
-   <figure style="max-width: 720px; margin: 16px auto; text-align: center;">
-  <img src="imagens/saida_bilateral_3x3.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Bilateral 3X3
-  </figcaption>
+<figure>
+  <img src="imagens/saida_bilateral_3x3.jpg" alt="Saída Bilateral 3x3.">
+  <figcaption>Saída Bilateral 3×3</figcaption>
 </figure>
-    
-      <img src="imagens/saida_bilateral_5x5.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Bilateral 5X5
-  </figcaption>
-</figure>
-    
-       <img src="imagens/saida_bilateral_7x7.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Bilateral 7X7
-  </figcaption>
-</figure>
-    
-       <img src="imagens/saida_bilateral_11x11.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Bilateral 11X11
-  </figcaption>
-</figure>
-    
-       <img src="imagens/saida_gaussiana_3x3.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Gaussiana 3X3
-  </figcaption>
-</figure>
-    
-           <img src="imagens/saida_gaussiana_5x5.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Gaussiana 5X5
-  </figcaption>
-</figure>
-    
-           <img src="imagens/saida_gaussiana_7x7.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Gaussiana 7X7
-  </figcaption>
-</figure>   
-    
 
-           <img src="imagens/saida_gaussiana_11x11.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Gaussiana 11X11
-  </figcaption>
-</figure>  
-    
-           <img src="imagens/saida_media_3x3.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 3X3
-  </figcaption>
-</figure>  
+<figure>
+  <img src="imagens/saida_bilateral_5x5.jpg" alt="Saída Bilateral 5x5.">
+  <figcaption>Saída Bilateral 5×5</figcaption>
+</figure>
 
-           <img src="imagens/saida_media_5x5.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 5X5
-  </figcaption>
-</figure>  
-    
-           <img src="imagens/saida_media_7x7.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 7X7
-  </figcaption>
-</figure>      
-    
-           <img src="imagens/saida_media_11x11.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 11X11
-  </figcaption>
-</figure>        
-    
+<figure>
+  <img src="imagens/saida_bilateral_7x7.jpg" alt="Saída Bilateral 7x7.">
+  <figcaption>Saída Bilateral 7×7</figcaption>
+</figure>
 
-           <img src="imagens/saida_mediana_3x3.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 7X7
-  </figcaption>
-</figure>    
-       
-          <img src="imagens/saida_mediana_5x5.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 5X5
-  </figcaption>
-</figure>    
+<figure>
+  <img src="imagens/saida_bilateral_11x11.jpg" alt="Saída Bilateral 11x11.">
+  <figcaption>Saída Bilateral 11×11</figcaption>
+</figure>
 
-          <img src="imagens/saida_mediana_7x7.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 7X7
-  </figcaption>
-</figure>    
-    
-          <img src="imagens/saida_mediana_11x11.jpg"
-       style="width:60%; height:auto; border-radius:8px; border:1px solid #ccc;">
-  <figcaption style="font:14px/1.4 Arial, sans-serif; color:#00000; margin-top:8px;">
-   Saída Média 11X11
-  </figcaption>
-</figure>        
+<figure>
+  <img src="imagens/saida_gaussiana_3x3.jpg" alt="Saída Gaussiana 3x3.">
+  <figcaption>Saída Gaussiana 3×3</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_gaussiana_5x5.jpg" alt="Saída Gaussiana 5x5.">
+  <figcaption>Saída Gaussiana 5×5</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_gaussiana_7x7.jpg" alt="Saída Gaussiana 7x7.">
+  <figcaption>Saída Gaussiana 7×7</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_gaussiana_11x11.jpg" alt="Saída Gaussiana 11x11.">
+  <figcaption>Saída Gaussiana 11×11</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_media_3x3.jpg" alt="Saída Média 3x3.">
+  <figcaption>Saída Média 3×3</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_media_5x5.jpg" alt="Saída Média 5x5.">
+  <figcaption>Saída Média 5×5</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_media_7x7.jpg" alt="Saída Média 7x7.">
+  <figcaption>Saída Média 7×7</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_media_11x11.jpg" alt="Saída Média 11x11.">
+  <figcaption>Saída Média 11×11</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_mediana_3x3.jpg" alt="Saída Mediana 3x3.">
+  <figcaption>Saída Mediana 3×3</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_mediana_5x5.jpg" alt="Saída Mediana 5x5.">
+  <figcaption>Saída Mediana 5×5</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_mediana_7x7.jpg" alt="Saída Mediana 7x7.">
+  <figcaption>Saída Mediana 7×7</figcaption>
+</figure>
+
+<figure>
+  <img src="imagens/saida_mediana_11x11.jpg" alt="Saída Mediana 11x11.">
+  <figcaption>Saída Mediana 11×11</figcaption>
+</figure>
+
+</body>
+</html>
+
+
+
     
     
    
