@@ -1169,7 +1169,7 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
  
 <figure>
   <div class="video-container">
-   <video controls style="width:70%; max-width:900px; height:auto; border-radius:10px;">
+    <video controls style="width:70%; max-width:900px; height:auto; border-radius:10px;">
       <source src="imagens/Gravação de tela de 2025-10-08 10-38-21.webm" type="video/webm">
       Seu navegador não suporta a reprodução de vídeo.
     </video>
@@ -1181,8 +1181,6 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 </body>
 </html>
        
-    
-    
   <figure>
   <img src="imagens/frame_melhor_20251008_103834.jpg" 
   <figcaption>Tela com melhor frame.</figcaption>
@@ -1196,10 +1194,18 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 <p> inserir código do programa !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
     
       <h3>5. Conclusões</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
+      <p style="text-align:justify;">A partir dos experimentos, verificou-se que o tamanho do kernel é determinante no compromisso entre suavização e nitidez: kernels maiores (7×7 e 11×11) intensificam a redução de ruído, porém degradam detalhes e bordas; kernels menores (3×3 e 5×5) preservam melhor as texturas e contornos, com suavização mais discreta.</p>
+
+<p style="text-align:justify;">Entre os métodos, o filtro de Média apresentou maior borramento global à medida que o kernel cresce, sendo útil para reduzir ruído de baixa intensidade, mas com perda acentuada de nitidez. O Gaussiano trouxe um equilíbrio melhor entre suavização e preservação de contornos, porém ainda com borramento cumulativo em kernels grandes. O Bilateral destacou-se por suavizar áreas homogêneas preservando bordas, oferecendo o melhor compromisso visual quando se deseja redução de ruído sem perda de arestas. Já o filtro Mediana foi o mais eficaz contra ruído sal-e-pimenta, removendo impulsos sem comprometer tanto as bordas — especialmente com kernels pequenos e médios.</p>
+
+<p style="text-align:justify;">Ao repetir as filtragens com ruído sal-e-pimenta, confirmou-se a superioridade da Mediana na limpeza desse tipo de ruído, enquanto o Bilateral manteve contornos nítidos com aparência natural. Com base nisso, para a aplicação em tempo real (webcam) selecionamos dois filtros e um tamanho de kernel representativos do melhor e do pior desempenho observados na etapa (2): a Mediana (ou Bilateral) com kernel moderado como melhor cenário (boa remoção de ruído com preservação de bordas) e a Média com kernel grande como pior cenário (suavização excessiva e perda de detalhes). O programa em OpenCV funcionou conforme o esperado, exibindo os resultados continuamente e permitindo o salvamento com a tecla “s”, atendendo aos requisitos propostos.</p>
+
+<p style="text-align:justify;">De forma geral, recomenda-se utilizar o filtro Mediana para tratar ruídos impulsivos e o Bilateral quando for essencial preservar as bordas da imagem. O Gaussiano apresenta um bom equilíbrio entre suavização e nitidez, enquanto o filtro de Média deve ser aplicado com cuidado, pois tende a provocar borramento excessivo. A seleção do tamanho do kernel deve levar em conta a intensidade do ruído presente e o grau de fidelidade visual desejado na imagem final.</p>
       </div>
       </div>
       </details>
+      
+      
         <!-- RELATÓRIO 3 -->
   <details>
     <summary>Relatório 3</summary>
