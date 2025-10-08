@@ -818,7 +818,6 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 <p style="text-align:justify;">Por fim, avaliamos o comportamento em tempo real com entrada de webcam, mostrando continuamente a imagem filtrada em uma janela do OpenCV e permitindo capturas (`.jpg`) via teclado. As escolhas dos dois filtros e kernels usados nesta etapa derivam dos melhores e piores desempenhos observados no cenário com ruído, consolidando a discussão com um caso prático. Opcionalmente, propomos ainda uma extensão interativa que habilita a seleção dinâmica do tipo de filtragem e do tamanho da máscara pelo usuário. Para reprodutibilidade e organização, cada programa é mantido em pastas distintas, com saídas nomeadas de forma consistente.
 </p>
       <h3>2. Fundamentos Básicos</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
   <p><strong>Objetivo:</strong> reduzir variações de alta frequência (ruído/detalhes finos) preservando estruturas relevantes (bordas e texturas). É etapa comum de pré-processamento para segmentação, detecção de bordas e descrição de regiões.</p>
 
   <h3>1) Modelo de ruído</h3>
@@ -940,11 +939,10 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 </head>
 <body>
 
-<p>Elaboramos um programa que realize as filtragens (com os filtros de média, gaussiano, mediana e bilateral) na sua imagem com um kernel 3x3, e salvamos as imagens resultantes de cada filtragem, em formato .jpg.  
-Repita todas filtragens, elaborando novos programas com kernel 5x5, 7x7 e 11x11, salvando a imagem resultante de cada kernel.</p>
+<p>Elaboramos um programa que realize as filtragens (com os filtros de média, gaussiano, mediana e bilateral) na sua imagem com um kernel 3x3, e salvamos as imagens resultantes de cada filtragem, em formato .jpg. Repetimos todas filtragens, elaborando novos programas com kernel 5x5, 7x7 e 11x11, salvando a imagem resultante de cada kernel.</p>
 
 <figure>
-  <img src="imagens/foto_grupo.png" alt="Foto em grupo original do Lab 1.">
+  <img src="imagens/foto_grupo.jpg" alt="Foto em grupo original do Lab 1.">
   <figcaption>Foto em grupo original do Lab 1.</figcaption>
 </figure>
 
@@ -1031,27 +1029,171 @@ Repita todas filtragens, elaborando novos programas com kernel 5x5, 7x7 e 11x11,
 </body>
 </html>
 
+<p><strong>2)</strong> Repetimos o procedimento acima, adicionando o ruído tipo sal-e-pimenta na imagem original. </p>
 
+<figure>
+  <img src="imagens/original.jpg" 
+  <figcaption>Imagem Sal e Pimenta original.</figcaption>
+</figure>
 
+<figure>
+  <img src="imagens/saida_bilateral_3x3_noise.jpg" 
+  <figcaption>Saída Bilateral 3x3.</figcaption>
+</figure>
     
-    
+<figure>
+  <img src="imagens/saida_bilateral_5x5_noise.jpg" 
+  <figcaption>Saída Bilateral 5x5.</figcaption>
+</figure>    
    
-    Para cada filtragem, analise os resultados quanto à variação do tamanho do kernel.
-    E também analise o resultado entre os tipos de filtragem utilizado para todos os kernel. 
-     
+<figure>
+  <img src="imagens/saida_bilateral_7x7_noise.jpg" 
+  <figcaption>Saída Bilateral 7x7.</figcaption>
+</figure>      
 
+<figure>
+  <img src="imagens/saida_bilateral_11x11_noise.jpg" 
+  <figcaption>Saída Bilateral 11x11.</figcaption>
+</figure>  
+
+<figure>
+  <img src="imagens/saida_gaussiana_3x3_noise.jpg" 
+  <figcaption>Saída Gaussiana 3x3.</figcaption>
+</figure>       
       
+<figure>
+  <img src="imagens/saida_gaussiana_5x5_noise.jpg" 
+  <figcaption>Saída Gaussiana 5x5.</figcaption>
+</figure>       
+           
+<figure>
+  <img src="imagens/saida_gaussiana_7x7_noise.jpg" 
+  <figcaption>Saída Gaussiana 7x7.</figcaption>
+</figure>       
+
+<figure>
+  <img src="imagens/saida_gaussiana_11x11_noise.jpg" 
+  <figcaption>Saída Gaussiana 11x11.</figcaption>
+</figure>  
       
+     
+<figure>
+  <img src="imagens/saida_media_3x3_noise.jpg" 
+  <figcaption>Saída Média 3x3.</figcaption>
+</figure>       
       
+<figure>
+  <img src="imagens/saida_media_5x5_noise.jpg" 
+  <figcaption>Saída Média 5x5.</figcaption>
+</figure>       
+
+<figure>
+  <img src="imagens/saida_media_7x7_noise.jpg" 
+  <figcaption>Saída Média 7x7.</figcaption>
+</figure>       
+
+<figure>
+  <img src="imagens/saida_media_11x11_noise.jpg" 
+  <figcaption>Saída Média 11x11.</figcaption>
+</figure>       
+     
+<figure>
+  <img src="imagens/saida_mediana_3x3_noise.jpg" 
+  <figcaption>Saída Mediana 3x3.</figcaption>
+</figure>       
+
+<figure>
+  <img src="imagens/saida_mediana_5x5_noise.jpg" 
+  <figcaption>Saída Mediana 5x5.</figcaption>
+</figure>       
       
-      
-      
+ <figure>
+  <img src="imagens/saida_mediana_7x7_noise.jpg" 
+  <figcaption>Saída Mediana 7x7.</figcaption>
+  
+  
+  <figure>
+  <img src="imagens/saida_mediana_11x11_noise.jpg" 
+  <figcaption>Saída Mediana 11x11.</figcaption>
+</figure>       
+  
+  <figure>
+  <img src="imagens/imagem_ruido_salpimenta.jpg" 
+  <figcaption>Saída com ruído.</figcaption>
+</figure> 
+
+  <p>Foram aplicados quatro tipos de filtragem (<strong>Gaussiano</strong>, <strong>Bilateral</strong>, <strong>Média</strong> e <strong>Mediana</strong>) sobre a mesma imagem original, utilizando tamanhos de kernel 3×3, 5×5, 7×7 e 11×11.  
+  A seguir são descritos os efeitos observados visualmente em cada caso.</p>
+
+  <h3>1. Filtro Gaussiano</h3>
+  <div class="resumo">
+    <p><strong>3×3:</strong> leve suavização; contornos permanecem bem definidos.<br>
+    <strong>5×5:</strong> suavização perceptível, pequenas áreas de ruído desaparecem.<br>
+    <strong>7×7:</strong> textura mais aveludada; perda de detalhes finos.<br>
+    <strong>11×11:</strong> borramento forte e perda de nitidez geral.</p>
+  </div>
+
+  <h3>2. Filtro Bilateral</h3>
+  <div class="resumo">
+    <p><strong>3×3:</strong> suavização leve, sem perda de contornos.<br>
+    <strong>5×5:</strong> aspecto limpo e suave, bordas ainda bem definidas.<br>
+    <strong>7×7:</strong> aparência de “pele filtrada”, contraste natural.<br>
+    <strong>11×11:</strong> efeito de pintura digital; superfícies uniformes e contornos bem preservados.</p>
+  </div>
+
+  <h3>3. Filtro de Média</h3>
+  <div class="resumo">
+    <p><strong>3×3:</strong> leve borramento; ruídos pequenos desaparecem.<br>
+    <strong>5×5:</strong> perda de nitidez moderada; bordas suavizadas.<br>
+    <strong>7×7:</strong> imagem mais desfocada, texturas diluídas.<br>
+    <strong>11×11:</strong> borramento intenso; aparência de embaçado geral.</p>
+  </div>
+
+  <h3>4. Filtro Mediana</h3>
+  <div class="resumo">
+    <p><strong>3×3:</strong> remove ruídos leves sem alterar contornos.<br>
+    <strong>5×5:</strong> ruídos isolados totalmente removidos.<br>
+    <strong>7×7:</strong> superfícies mais uniformes; pequenas bordas suavizadas.<br>
+    <strong>11×11:</strong> possível distorção em detalhes finos, porém excelente redução de ruído.</p>
+
+
+    <p style="text-align:justify;"> Logo, o filtro bilateral apresenta o melhor equilíbrio entre suavização e preservação de detalhes, enquanto o filtro de média é o que mais degrada a nitidez. O filtro mediana se destaca em imagens com ruído tipo sal-e-pimenta, e o Gaussiano oferece suavização homogênea com bom controle visual.</p>
+
+  </main>
+  </body>
+  </html>
+    
+<p> <strong> 3) </strong> Elabore um novo programa em que a imagem de entrada é da webcam, e que mostre o resultado da filtragem numa janela opencv, de forma contínua na tela do computar. Utilize a tecla [s] do teclado para permitir salvar a imagem sendo apresentada na tela, em formato .jpg. Neste caso, escolha apenas  dois tipos de filtragem e tamanho de kernel, baseado no melhor e no pior resultado obtidos na parte (2) acima.</p>    
+
+
+<figure>
+  <video controls>
+    <source src="imagens/Gravação de tela de 2025-10-08 10-38-21.webm" type="video/webm">
+    Seu navegador não suporta a exibição de vídeo.
+  </video>
+  <figcaption>Gravação de tela mostrando a execução do programa de filtragem.</figcaption>
+</figure>
+
+</body>
+</html>
+    
+  <figure>
+  <img src="imagens/frame_melhor_20251008_103834.jpg" 
+  <figcaption>Tela com melhor frame.</figcaption>
+</figure>     
+
+  <figure>
+  <img src="imagens/frame_pior_20251008_103512.jpg" 
+  <figcaption>Tela com pior frame.</figcaption>
+</figure>     
+
+<p> inserir código do programa !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+    
       <h3>5. Conclusões</h3>
       <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
-    </div>
-    </div>
-  </details>
-  
+      </div>
+      </div>
+      </details>
         <!-- RELATÓRIO 3 -->
   <details>
     <summary>Relatório 3</summary>
