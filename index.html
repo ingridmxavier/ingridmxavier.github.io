@@ -216,32 +216,117 @@
     </details><!-- FIM do <details> da ETAPA 1 -->
 
     <!-- ETAPA 2 -->
-    <details>
-      <summary>ETAPA 2: Modelagem Funcional do Sistema (MF)</summary>
-      <div class="content">
-        <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier</p>
-        <p><strong>Data:</strong> 08/10/2025</p>
-
-        <h3>Descrição Geral</h3>
-        <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
-          <p>O sistema proposto tem como finalidade monitorar, em tempo real, o uso de celular pelo motorista e emitir alerta sonoro e visual...</p>
+      <details>
+        <summary>ETAPA 2: Modelagem Funcional do Sistema (MF)</summary>
+        <div class="content">
+          <p>Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier</p>
+          <p><strong>Data:</strong> 08/10/2025</p>
+      
+          <h3>Descrição Geral</h3>
+          <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+            <p>
+              O RoadWatch é um sistema de monitoramento inteligente que tem como objetivo 
+              identificar, em tempo real, se o motorista está utilizando o celular enquanto dirige. 
+              A proposta busca reduzir acidentes causados por distrações no trânsito, 
+              detectando o comportamento do condutor através de uma câmera instalada no veículo. 
+              O sistema analisa continuamente o vídeo capturado, verificando padrões como 
+              posição das mãos, olhar do motorista e presença de um celular em cena.
+            </p>
+            <p>
+              Durante a modelagem funcional, foram definidos os blocos principais que compõem 
+              o funcionamento do sistema, bem como as entradas, saídas e processamentos de cada um. 
+              Essa concepção funcional orienta o desenvolvimento de cada módulo de software e 
+              auxilia na integração entre câmera e sensores e o processamento digital.
+            </p>
+          </div>
+      
+          <h3>Diagrama de Blocos - Modelagem Funcional</h3>
+          <figure>
+            <img src="Diagrama de Blocos RoadWatch.png" alt="Diagrama de blocos do sistema RoadWatch, mostrando os módulos de captura de imagem, pré-processamento, detecção de objetos, análise de comportamento e geração de alerta." style="max-width:70%; height:auto;">
+            <figcaption>Figura 1 – Diagrama de blocos do sistema RoadWatch.</figcaption>
+          </figure>
+      
+          <h4>Descrição dos Blocos Funcionais</h4>
+          <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+            <ol>
+              <li>
+                <strong>Bloco 1 – Captura de Imagem</strong><br>
+                Entrada: vídeo em tempo real da câmera frontal voltada ao motorista.<br>
+                Processamento: coleta contínua de quadros (frames) com resolução suficiente para detecção de rosto e mãos, 
+                ajustando taxa de quadros e brilho automaticamente conforme as condições de iluminação.<br>
+                Saída: sequência de frames de vídeo prontos para pré-processamento.
+              </li><br>
+      
+              <li>
+                <strong>Bloco 2 – Pré-processamento de Imagem</strong><br>
+                Entrada: frames capturados pelo módulo anterior.<br>
+                Processamento: redimensionamento, normalização, correção de iluminação, 
+                e definição de uma Região de Interesse focada na cabeça e mãos do motorista. 
+                Essa etapa reduz ruídos e o custo computacional da análise.<br>
+                Saída: imagens tratadas e otimizadas para detecção.
+              </li><br>
+      
+              <li>
+                <strong>Bloco 3 – Detecção de Objetos e Posições</strong><br>
+                Entrada: imagens pré-processadas.<br>
+                Processamento: aplicação de modelo de detecção baseado em redes neurais, identificando a localização da face, das mãos e do celular. 
+                Cada detecção retorna uma coordenada e uma pontuação de confiança.<br>
+                Saída: mapa de detecções e suas respectivas probabilidades.
+              </li><br>
+      
+              <li>
+                <strong>Bloco 4 – Análise de Comportamento do Motorista</strong><br>
+                Entrada: resultados de detecção dos frames e histórico recente de posições.<br>
+                Processamento: análise temporal dos frames para verificar gestos ou ações típicas 
+                do uso de celular, como olhar para baixo ou segurar o telefone. 
+                Pode ser utilizada uma rede de classificação de ações ou um filtro temporal.<br>
+                Saída: rótulo de comportamento (ex.: “atento”, “usando celular”, “mão próxima ao rosto”).
+              </li><br>
+      
+              <li>
+                <strong>Bloco 5 – Verificação de Movimento do Veículo</strong><br>
+                Entrada: dados de sensores como o GPS.<br>
+                Processamento: determina se o veículo está em movimento acima de uma velocidade mínima 
+                (ex.: 5 km/h), evitando que o alerta seja acionado com o carro parado.<br>
+                Saída: estado do veículo (“em movimento” / “parado”).
+              </li><br>
+      
+              <li>
+                <strong>Bloco 6 – Fusão de Informações e Decisão</strong><br>
+                Entrada: resultados da análise de comportamento e estado do veículo.<br>
+                Processamento: combina os resultados, aplicando regras lógicas e filtros temporais 
+                (por exemplo, exigir que o comportamento seja detectado em 3 frames consecutivos 
+                para confirmar o evento).<br>
+                Saída: decisão final (“alerta” ou “seguro”).
+              </li><br>
+      
+              <li>
+                <strong>Bloco 7 – Geração de Alertas e Registro</strong><br>
+                Entrada: sinal de alerta gerado pelo módulo de decisão.<br>
+                Processamento: aciona o alerta sonoro e/ou visual no painel do veículo 
+                e registra o evento no log com data, hora e tipo de distração.<br>
+                Saída: feedback imediato ao motorista e registro do incidente.
+              </li>
+            </ol>
+          </div>
+      
+          <h4>Conclusão</h4>
+          <div style="font-family: Arial, sans-serif; line-height: 1.5; text-align: justify;">
+            <p>
+              A modelagem funcional do RoadWatch define claramente as etapas envolvidas 
+              na identificação de distrações do motorista, desde a captura das imagens até 
+              a emissão do alerta. A decomposição em blocos facilita o desenvolvimento modular, 
+              a validação individual de cada componente e a futura integração com hardware real.
+            </p>
+            <p>
+              Essa abordagem garante que o sistema possa evoluir de forma estruturada, 
+              permitindo substituição ou aprimoramento de módulos específicos 
+              (por exemplo, trocar o modelo de detecção por outro mais eficiente) 
+              sem comprometer o funcionamento geral do sistema.
+            </p>
+          </div>
         </div>
-
-        <h3>Diagrama de Blocos - Modelagem Funcional</h3>
-        <figure>
-          <img src="Diagrama_de_Blocos.png" alt="Fluxograma do sistema de detecção de uso de celular em veículo em movimento, mostrando as etapas de captura de imagem, processamento, detecção de comportamento, verificação de movimento e geração de alertas." style="max-width:90%; height:auto;">
-        </figure>
-
-        <h4>Descrição dos Blocos Funcionais</h4>
-        <p><!-- descreva os blocos --></p>
-
-        <h4>Estimativa do uso de técnicas para o projeto</h4>
-        <p><!-- estimativa --></p>
-
-        <h4>Conclusão</h4>
-        <p><!-- conclusão --></p>
-      </div>
-    </details>
+      </details>
 
     <!-- ETAPA 3 -->
     <details>
