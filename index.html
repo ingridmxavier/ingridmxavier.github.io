@@ -1309,13 +1309,93 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
     <summary>Relatório 3</summary>
     <header class="content">
       <p><strong>Integrantes:</strong> Fernanda Ayumi Kuroiwa — Gabriel Henrique Pensado Rothen — Ingrid Mara Xavier</p>
-      <p><strong>Data:</strong> X/X/2025</p>
+      <p><strong>Data:</strong> 22/10/2025</p>
     </header>
     <div class="content">
       <h3>1. Introdução</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 2...</p>
-      <h3>2. Fundamentos Básicos</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
+      <p style="text-align:justify;">O presente experimento tem como objetivo estudar a representação e conversão entre diferentes espaços de cores utilizando a biblioteca OpenCV. A compreensão desses espaços é essencial no processamento de imagens e visão computacional, pois muitas operações de segmentação, filtragem e detecção de objetos dependem da forma como as cores são representadas numericamente.</p>
+
+ <p style="text-align:justify;">Inicialmente, são exploradas as principais conversões entre espaços de cores — como RGB ↔ GRAY, RGB ↔ YCrCb, RGB ↔ HSV e Bayer → RGB — por meio das funções de conversão de cor disponibilizadas pelo OpenCV. Em seguida, é realizado um experimento prático de mudança de espaço RGB para HSV, com captura em tempo real via webcam, permitindo observar o comportamento de diferentes objetos coloridos e aplicar a função inRange() para segmentar faixas específicas de cores.</p>
+
+ <p style="text-align:justify;">Na sequência, o experimento é expandido com a aplicação de um filtro Gaussiano, comparando o efeito do pré-processamento na detecção de cores. Posteriormente, o detector de bordas Canny é implementado sobre as imagens filtradas, possibilitando analisar o impacto dos parâmetros de detecção e a resposta do sistema diante de diferentes objetos e níveis de ruído.</p>
+
+ <p style="text-align:justify;">Por fim, são realizadas modificações adicionais para salvar imagens e gravar vídeos do processo de rastreamento, além da elaboração de um programa capaz de identificar múltiplas cores simultaneamente (como vermelho, verde e azul), consolidando os conceitos de espaço de cores, segmentação e detecção de bordas.</p>
+
+ <p style="text-align:justify;">Essas etapas visam fortalecer o entendimento prático sobre a manipulação de imagens coloridas, destacando a importância da escolha adequada do espaço de cor e dos métodos de filtragem para aplicações de visão computacional em tempo real.</p>
+ 
+
+      <section id="fundamentos-basicos" style="font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #222; max-width: 900px; margin: 24px auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.06); text-align: justify;">
+  <h3 style="margin-top:1;">2. Fundamentos Básicos</h3>
+  <p>
+    As imagens digitais são formadas por <strong>pixels</strong>, e cada pixel possui valores numéricos que representam a
+    <strong>intensidade</strong> e a <strong>composição de cor</strong>. Esses valores são interpretados conforme o
+    <strong>espaço de cores</strong> adotado — um modelo matemático que descreve como as cores são representadas e manipuladas
+    em aplicações de processamento de imagem.
+  </p>
+
+  <h3>1) Espaço de Cores RGB</h3>
+  <p>
+    O espaço <strong>RGB (Red, Green, Blue)</strong> é o mais comum em câmeras e monitores, onde cada pixel é composto pela
+    combinação dos três canais de cor. Embora intuitivo, o RGB não é ideal para todas as aplicações de visão computacional:
+    pequenas variações de <em>iluminação</em> podem alterar significativamente os valores dos canais, dificultando a segmentação
+    de cores específicas.
+  </p>
+
+  <h3>2) Espaço de Cores HSV</h3>
+  <p>
+    O modelo <strong>HSV (Hue, Saturation, Value)</strong> é frequentemente usado para <strong>segmentação e rastreamento de cores</strong>,
+    pois separa as informações de <strong>matiz (Hue)</strong>, <strong>saturação (S)</strong> e <strong>valor/brilho (V)</strong>:
+  </p>
+  <ul style="margin-top: 8px;">
+    <li><strong>Hue (Matiz):</strong> define a cor propriamente dita (vermelho, verde, azul etc.).</li>
+    <li><strong>Saturation (Saturação):</strong> grau de pureza/intensidade da cor.</li>
+    <li><strong>Value (Valor):</strong> brilho/luminosidade da cor.</li>
+  </ul>
+  <p>
+    Essa separação torna o HSV mais <strong>robusto à variação de iluminação</strong>, facilitando a detecção de cores específicas por meio
+    de limiares definidos com <code>inRange()</code> (OpenCV).
+  </p>
+
+  <h3>3) Conversões de Espaço de Cor</h3>
+  <p>
+    O OpenCV fornece funções diretas para conversão entre espaços de cor via <code>cvtColor()</code>. As conversões mais usadas
+    neste laboratório incluem:
+  </p>
+  <ul style="margin-top: 8px;">
+    <li><code>COLOR_BGR2GRAY</code> → converte imagem colorida para tons de cinza.</li>
+    <li><code>COLOR_BGR2HSV</code> → converte para HSV (útil na segmentação por cor).</li>
+    <li><code>COLOR_BGR2YCrCb</code> → separa luminância (Y) e crominância (Cr, Cb), útil em compressão de vídeo e detecção de pele.</li>
+  </ul>
+
+  <h3>4) Segmentação de Cores com <code>inRange()</code></h3>
+  <p>
+    A função <code>inRange()</code> realiza uma operação de <strong>limiarização</strong>, gerando uma máscara binária:
+    pixels com HSV dentro da faixa definida (mín–máx) tornam-se <strong>brancos (255)</strong>; os demais, <strong>pretos (0)</strong>.
+    Essa técnica é fundamental para <strong>isolar objetos coloridos</strong> e será usada nas etapas de detecção/rastreamento.
+  </p>
+
+  <h3>5) Filtragem Gaussiana</h3>
+  <p>
+    O <strong>filtro Gaussiano</strong> é um método de suavização que reduz ruídos de alta frequência, tornando bordas e áreas de cor
+    mais homogêneas. Aplicá-lo <em>antes</em> da conversão para HSV ajuda a evitar que ruídos/reflexos causem erros na segmentação.
+  </p>
+
+  <h3>6) Detector de Bordas Canny</h3>
+  <p>
+    O <strong>detector de Canny</strong> identifica bordas analisando gradientes de intensidade. Ele combina suavização, cálculo de derivadas e
+    limiares duplos, permitindo contornos <strong>nítidos e bem definidos</strong>. No contexto do laboratório, aplica-se o Canny sobre a imagem
+    filtrada (Gaussiano) para visualizar contornos dos objetos segmentados.
+  </p>
+
+  <hr style="border:none; border-top:1px solid #ddd; margin: 20px 0;">
+
+  <p style="font-size: 0.95rem;">
+    <strong>Em síntese:</strong> a escolha adequada do espaço de cor (HSV, YCrCb etc.) e o uso combinado de
+    <em>filtragem</em> (Gaussiano), <em>conversões</em> (cvtColor) e <em>detecção</em> (inRange, Canny) são decisivos para
+    obter segmentações estáveis e contornos consistentes em aplicações de visão computacional em tempo real.
+  </p>
+</section>
+
       <h3>3. Materiais e Métodos</h3>
       <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
       <h3>4. Resultados e Análises</h3>
