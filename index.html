@@ -1397,7 +1397,28 @@ Dentro dessa janela, aparece uma fotografia colorida do jogador de futebol Lione
 </section>
 
       <h3>3. Materiais e Métodos</h3>
-      <p style="text-align:justify;">Resumo do objetivo do Relatório 3...</p>
+      <section id="materiais-metodos" style="font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #222; text-align: justify;">
+  <h3>3. Materiais e Métodos</h3>
+  <p>
+    O experimento foi realizado em computador com Linux e webcam integrada, utilizando Python 3.10 e as bibliotecas OpenCV e NumPy.
+    Investigou-se conversão de espaços de cor, filtragens e detecção de bordas em tempo real.
+  </p>
+  <p>
+    O programa capturou frames da webcam (<code>cv.VideoCapture(0)</code>) e, opcionalmente, aplicou filtro Gaussiano
+    (<code>cv.GaussianBlur</code>) para reduzir ruído antes da conversão de cor. Em seguida, a imagem foi convertida de
+    RGB para HSV (<code>cv.cvtColor</code>), por ser mais estável à variação de iluminação e favorecer a segmentação.
+  </p>
+  <p>
+    Para isolar regiões por cor, empregou-se <code>cv.inRange()</code> na faixa HSV definida; quando necessário, máscaras para múltiplas cores
+    (p. ex., vermelho, verde e azul) foram combinadas por operações lógicas. Opcionalmente, aplicou-se o detector de bordas de Canny
+    (<code>cv.Canny</code>) para realçar contornos.
+  </p>
+  <p>
+    O sistema exibiu janelas com a imagem original, HSV, máscaras e bordas; imagens e vídeos puderam ser salvos via
+    <code>cv.imwrite()</code> e <code>cv.VideoWriter()</code>. A execução foi encerrada ao pressionar a tecla <strong>q</strong>.
+  </p>
+</section>
+
       
 <p><strong>Diagrama de bloco</strong></p>
 <figure style="max-width: 720px; margin: 16px auto; text-align: center;">
